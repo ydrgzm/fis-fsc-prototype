@@ -1,0 +1,114 @@
+.run-screen {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.api-limit-notice {
+  display: flex;
+  align-items: center;
+  gap: var(--slds-spacing-small);
+  padding: var(--slds-spacing-medium);
+  background-color: rgba(1, 118, 211, 0.08);
+  border: 1px solid var(--slds-brand-primary);
+  border-radius: var(--slds-radius-medium);
+  margin-bottom: var(--slds-spacing-large);
+  color: var(--slds-brand-primary);
+}
+
+.api-limit-notice .info-icon {
+  flex-shrink: 0;
+}
+
+.api-limit-notice .remaining {
+  color: var(--slds-success);
+}
+
+.run-mode-tabs {
+  display: flex;
+  border: 1px solid var(--slds-color-gray-3);
+  border-radius: var(--slds-radius-medium);
+  overflow: hidden;
+  margin-bottom: var(--slds-spacing-large);
+  width: fit-content;
+}
+
+.mode-tab {
+  padding: var(--slds-spacing-x-small) var(--slds-spacing-large);
+  border: none;
+  background-color: var(--slds-bg-default);
+  color: var(--slds-text-default);
+  font-size: var(--slds-font-size-medium);
+  font-family: var(--slds-font-family);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mode-tab:first-child {
+  border-right: 1px solid var(--slds-color-gray-3);
+}
+
+.mode-tab:hover {
+  background-color: var(--slds-color-gray-1);
+}
+
+.mode-tab.active {
+  background-color: var(--slds-brand-primary);
+  color: var(--slds-text-inverse);
+}
+
+.run-now-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-large);
+}
+
+.run-description {
+  color: var(--slds-text-weak);
+  font-size: var(--slds-font-size-medium);
+}
+
+.run-later-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-large);
+}
+
+.schedule-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-small);
+}
+
+.custom-schedule {
+  padding-left: var(--slds-spacing-x-large);
+}
+
+.date-time-inputs {
+  display: flex;
+  gap: var(--slds-spacing-large);
+  margin-bottom: var(--slds-spacing-small);
+}
+
+.input-with-icon {
+  position: relative;
+  flex: 1;
+  max-width: 250px;
+}
+
+.input-with-icon .input-icon {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  color: var(--slds-text-weak);
+  pointer-events: none;
+}
+
+.timezone-notice {
+  display: flex;
+  align-items: center;
+  gap: var(--slds-spacing-xx-small);
+  font-size: var(--slds-font-size-small);
+  color: var(--slds-text-weak);
+  margin-bottom: var(--slds-spacing-medium);
+}

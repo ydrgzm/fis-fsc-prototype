@@ -1,0 +1,23 @@
+.slds-card {
+  background-color: var(--slds-bg-default);
+  border: 1px solid var(--slds-color-gray-2);
+  border-radius: var(--slds-radius-medium);
+  box-shadow: var(--slds-shadow-card);
+}
+
+.slds-card-header {
+  padding: var(--slds-spacing-medium) var(--slds-spacing-large);
+  background-color: var(--slds-color-gray-1);
+  border-bottom: 1px solid var(--slds-color-gray-2);
+}
+
+.slds-card-title {
+  font-size: var(--slds-font-size-x-large);
+  font-weight: var(--slds-font-weight-bold);
+  color: var(--slds-text-default);
+  margin: 0;
+}
+
+.slds-card-body {
+  padding: var(--slds-spacing-large);
+}

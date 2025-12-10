@@ -1,0 +1,20 @@
+.slds-radio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--slds-spacing-x-small);
+}
+
+.slds-radio {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--slds-brand-primary);
+  flex-shrink: 0;
+}
+
+.slds-radio-label {
+  font-size: var(--slds-font-size-medium);
+  color: var(--slds-text-default);
+  cursor: pointer;
+}

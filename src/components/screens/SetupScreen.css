@@ -1,0 +1,75 @@
+.setup-screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-x-large);
+}
+
+.load-block {
+  border-bottom: 1px solid var(--slds-color-gray-2);
+  padding-bottom: var(--slds-spacing-large);
+}
+
+.load-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.load-block-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--slds-spacing-x-small);
+  margin-bottom: var(--slds-spacing-medium);
+}
+
+.load-block-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title-text {
+  font-size: var(--slds-font-size-large);
+  font-weight: var(--slds-font-weight-bold);
+  color: var(--slds-brand-primary);
+}
+
+.subtitle-text {
+  font-size: var(--slds-font-size-medium);
+  color: var(--slds-brand-primary);
+}
+
+.load-block-content {
+  padding-left: var(--slds-spacing-x-large);
+}
+
+.source-type-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-x-small);
+  margin-bottom: var(--slds-spacing-medium);
+}
+
+.sftp-fields,
+.api-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-small);
+  padding-left: var(--slds-spacing-large);
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: var(--slds-spacing-medium);
+}
+
+.field-row .field-label {
+  min-width: 80px;
+  font-size: var(--slds-font-size-medium);
+  color: var(--slds-text-default);
+}
+
+.field-row .slds-input-wrapper {
+  flex: 1;
+  max-width: 350px;
+}

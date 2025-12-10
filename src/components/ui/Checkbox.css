@@ -1,0 +1,21 @@
+.slds-checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--slds-spacing-x-small);
+}
+
+.slds-checkbox {
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0 0;
+  cursor: pointer;
+  accent-color: var(--slds-brand-primary);
+  flex-shrink: 0;
+}
+
+.slds-checkbox-label {
+  font-size: var(--slds-font-size-medium);
+  color: var(--slds-text-default);
+  cursor: pointer;
+  line-height: 1.4;
+}
