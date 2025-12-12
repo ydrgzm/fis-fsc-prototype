@@ -20,45 +20,45 @@
 /* Sizes */
 .slds-button--small {
   padding: var(--slds-spacing-xx-small) var(--slds-spacing-small);
-  font-size: var(--slds-font-size-small);
+  font-size: var(--slds-font-size-2);  /* 12px */
 }
 
 .slds-button--medium {
   padding: var(--slds-spacing-x-small) var(--slds-spacing-medium);
-  font-size: var(--slds-font-size-medium);
+  font-size: var(--slds-font-size-4);  /* 14px */
 }
 
 .slds-button--large {
   padding: var(--slds-spacing-small) var(--slds-spacing-large);
-  font-size: var(--slds-font-size-large);
+  font-size: var(--slds-font-size-5);  /* 16px */
 }
 
-/* Variants */
+/* Variants - SLDS 2 Colors */
 .slds-button--brand {
-  background-color: var(--slds-brand-primary);
+  background-color: var(--slds-brand-primary);       /* PALETTE_BLUE_60 */
   color: var(--slds-text-inverse);
   border-color: var(--slds-brand-primary);
 }
 
 .slds-button--brand:hover:not(:disabled) {
-  background-color: var(--slds-brand-primary-dark);
-  border-color: var(--slds-brand-primary-dark);
+  background-color: var(--slds-brand-primary-active); /* PALETTE_BLUE_50 */
+  border-color: var(--slds-brand-primary-active);
 }
 
 .slds-button--neutral {
   background-color: var(--slds-bg-default);
   color: var(--slds-text-default);
-  border-color: var(--slds-color-gray-3);
+  border-color: var(--slds-color-neutral-80);        /* PALETTE_NEUTRAL_80 */
 }
 
 .slds-button--neutral:hover:not(:disabled) {
-  background-color: var(--slds-color-gray-1);
+  background-color: var(--slds-color-neutral-95);    /* PALETTE_NEUTRAL_95 */
 }
 
 .slds-button--outline {
   background-color: transparent;
-  color: var(--slds-brand-primary);
-  border-color: var(--slds-brand-primary);
+  color: var(--slds-brand-accessible);               /* BRAND_ACCESSIBLE */
+  border-color: var(--slds-brand-accessible);
 }
 
 .slds-button--outline:hover:not(:disabled) {
@@ -67,12 +67,12 @@
 }
 
 .slds-button--destructive {
-  background-color: var(--slds-error);
+  background-color: var(--slds-error-dark);          /* PALETTE_RED_40 */
   color: var(--slds-text-inverse);
-  border-color: var(--slds-error);
+  border-color: var(--slds-error-dark);
 }
 
 .slds-button--destructive:hover:not(:disabled) {
-  background-color: #8e0412;
-  border-color: #8e0412;
+  background-color: var(--slds-error-darker);        /* PALETTE_RED_30 */
+  border-color: var(--slds-error-darker);
 }

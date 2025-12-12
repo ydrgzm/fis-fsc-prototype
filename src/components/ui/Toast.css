@@ -25,17 +25,22 @@
 }
 
 .slds-toast--success {
-  background-color: var(--slds-success);
+  background-color: var(--slds-success);             /* PALETTE_GREEN_50 - Accessible with white */
   color: var(--slds-text-inverse);
 }
 
 .slds-toast--error {
-  background-color: var(--slds-error);
+  background-color: var(--slds-error-dark);          /* PALETTE_RED_40 - Accessible with white */
   color: var(--slds-text-inverse);
 }
 
+.slds-toast--warning {
+  background-color: var(--slds-warning);             /* PALETTE_ORANGE_70 */
+  color: var(--slds-text-default);
+}
+
 .slds-toast--info {
-  background-color: var(--slds-brand-primary);
+  background-color: var(--slds-color-neutral-50);    /* COLOR_BACKGROUND_TOAST */
   color: var(--slds-text-inverse);
 }
 
@@ -44,8 +49,9 @@
 }
 
 .toast-message {
-  font-size: var(--slds-font-size-medium);
+  font-size: var(--slds-font-size-4);  /* 14px */
   font-weight: var(--slds-font-weight-regular);
+  line-height: var(--slds-line-height-text);
 }
 
 .toast-close {

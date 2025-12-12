@@ -14,7 +14,8 @@
 }
 
 .slds-radio-label {
-  font-size: var(--slds-font-size-medium);
+  font-size: var(--slds-font-size-4);  /* 14px */
   color: var(--slds-text-default);
   cursor: pointer;
+  line-height: var(--slds-line-height-text);
 }

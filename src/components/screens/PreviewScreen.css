@@ -4,68 +4,90 @@
 
 .preview-table-container {
   overflow-x: auto;
-  margin-bottom: var(--slds-spacing-medium);
+  margin-bottom: 16px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e5e5;
 }
 
 .preview-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--slds-font-size-medium);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .preview-table thead {
-  background-color: var(--slds-color-gray-1);
+  background-color: #032D60;
 }
 
 .preview-table th {
-  padding: var(--slds-spacing-small) var(--slds-spacing-medium);
+  padding: 14px 16px;
   text-align: left;
-  border-bottom: 2px solid var(--slds-color-gray-3);
-  font-weight: var(--slds-font-weight-regular);
+  border-bottom: 2px solid #021f42;
+  font-weight: 500;
   white-space: nowrap;
+  color: white;
 }
 
 .header-cell {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .source-name {
-  font-weight: var(--slds-font-weight-bold);
-  color: var(--slds-text-default);
+  font-weight: 600;
+  color: white;
 }
 
 .target-name {
-  font-size: var(--slds-font-size-small);
-  color: var(--slds-success);
+  font-size: 11px;
+  color: #90d5ff;
+  line-height: 1.4;
+  opacity: 0.9;
 }
 
 .preview-table td {
-  padding: var(--slds-spacing-small) var(--slds-spacing-medium);
-  border-bottom: 1px solid var(--slds-color-gray-2);
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e5e5;
   vertical-align: middle;
+  color: #3e3e3c;
 }
 
 .preview-table tbody tr:hover {
-  background-color: var(--slds-color-gray-1);
+  background-color: #f4f6f9;
+}
+
+.preview-table tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+.preview-table tbody tr:nth-child(even):hover {
+  background-color: #f4f6f9;
 }
 
 .preview-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: var(--slds-spacing-medium);
-  border-top: 1px solid var(--slds-color-gray-2);
+  padding: 16px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e5e5;
 }
 
 .subset-notice {
-  font-size: var(--slds-font-size-small);
-  color: var(--slds-text-weak);
+  font-size: 13px;
+  color: #706e6b;
   font-style: italic;
+  line-height: 1.5;
 }
 
 .view-toggle {
   display: flex;
-  gap: var(--slds-spacing-x-small);
+  gap: 8px;
 }
+

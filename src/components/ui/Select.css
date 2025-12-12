@@ -2,18 +2,275 @@
   display: flex;
   flex-direction: column;
   gap: var(--slds-spacing-xx-small);
+  position: relative;
 }
 
 .slds-select-label {
-  font-size: var(--slds-font-size-small);
+  font-size: var(--slds-font-size-2);  /* 12px - FORM_LABEL_FONT_SIZE */
   font-weight: var(--slds-font-weight-bold);
+  color: var(--slds-text-default);
+  line-height: var(--slds-line-height-text);
+}
+
+.slds-select-container {
+  position: relative;
+  min-width: 580px;
+}
+
+.slds-select-container.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.slds-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--slds-spacing-x-small) var(--slds-spacing-small);
+  font-size: var(--slds-font-size-4);  /* 14px - INPUT_STATIC_FONT_SIZE */
+  font-family: var(--slds-font-family);
+  font-weight: var(--slds-font-weight-regular);
+  line-height: var(--slds-line-height-text);
+  border: 1px solid var(--slds-color-gray-3);
+  border-radius: var(--slds-radius-medium);
+  background-color: var(--slds-bg-default);
+  color: var(--slds-text-default);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  text-align: left;
+}
+
+.slds-select-trigger:focus {
+  outline: none;
+  border-color: var(--slds-brand-primary);
+  box-shadow: 0 0 0 3px rgba(1, 118, 211, 0.15);
+}
+
+.slds-select-trigger.open {
+  border-color: var(--slds-brand-primary);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.slds-select-trigger:disabled {
+  cursor: not-allowed;
+  background-color: var(--slds-color-gray-1);
+}
+
+.slds-select-arrow {
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23706e6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.slds-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  min-width: 580px;
+  background-color: var(--slds-bg-default);
+  border: 1px solid var(--slds-brand-primary);
+  border-top: none;
+  border-radius: 0 0 var(--slds-radius-medium) var(--slds-radius-medium);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.slds-select-search {
+  padding: var(--slds-spacing-x-small);
+  border-bottom: 1px solid var(--slds-color-gray-2);
+}
+
+.slds-select-search-input {
+  width: 100%;
+  padding: var(--slds-spacing-x-small) var(--slds-spacing-small);
+  font-size: var(--slds-font-size-4);  /* 14px - INPUT_STATIC_FONT_SIZE */
+  font-family: var(--slds-font-family);
+  font-weight: var(--slds-font-weight-regular);
+  line-height: var(--slds-line-height-text);
+  border: 1px solid var(--slds-color-gray-3);
+  border-radius: var(--slds-radius-medium);
+  background-color: var(--slds-bg-default);
   color: var(--slds-text-default);
 }
 
+.slds-select-search-input:focus {
+  outline: none;
+  border-color: var(--slds-brand-primary);
+  box-shadow: 0 0 0 2px rgba(27, 150, 255, 0.15);    /* PALETTE_BLUE_60 with transparency */
+}
+
+.slds-select-search-input::placeholder {
+  color: var(--slds-text-placeholder);               /* COLOR_TEXT_PLACEHOLDER */
+}
+
+.slds-select-options {
+  list-style: none;
+  margin: 0;
+  padding: var(--slds-spacing-xx-small) 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.slds-select-option {
+  padding: var(--slds-spacing-x-small) var(--slds-spacing-small);
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--slds-spacing-x-small);
+  flex-wrap: wrap;
+}
+
+.slds-select-option:hover {
+  background-color: var(--slds-color-neutral-95);
+}
+
+.slds-select-option.selected {
+  background-color: var(--slds-brand-background);    /* PALETTE_BLUE_95 */
+  color: var(--slds-brand-accessible);               /* BRAND_ACCESSIBLE */
+  font-weight: var(--slds-font-weight-bold);
+}
+
+/* Field name and datatype styling */
+.slds-select-field-name {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.slds-select-value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--slds-spacing-x-small);
+  overflow: hidden;
+  padding-right: var(--slds-spacing-small);
+}
+
+.slds-select-value .slds-select-field-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Datatype badge - prominent styling */
+.slds-select-datatype {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: var(--slds-font-size-1);  /* 10px - Smallest, for badges */
+  font-weight: var(--slds-font-weight-bold);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Datatype color coding - SLDS 2 Palette Colors */
+.slds-datatype-text {
+  background-color: #d8e6fe;           /* PALETTE_BLUE_90 */
+  color: #014486;                       /* PALETTE_BLUE_30 */
+}
+
+.slds-datatype-text-area {
+  background-color: #d8e6fe;           /* PALETTE_BLUE_90 */
+  color: #014486;                       /* PALETTE_BLUE_30 */
+}
+
+.slds-datatype-number {
+  background-color: #ece1f9;           /* PALETTE_PURPLE_90 */
+  color: #5a1ba9;                       /* PALETTE_PURPLE_30 */
+}
+
+.slds-datatype-currency {
+  background-color: #cdefc4;           /* PALETTE_GREEN_90 */
+  color: #194e31;                       /* PALETTE_GREEN_30 */
+}
+
+.slds-datatype-date {
+  background-color: #f9e3b6;           /* PALETTE_YELLOW_90 */
+  color: #6f3400;                       /* PALETTE_YELLOW_30 */
+}
+
+.slds-datatype-date-time {
+  background-color: #fedfd0;           /* PALETTE_ORANGE_90 */
+  color: #5f3e02;                       /* PALETTE_ORANGE_30 */
+}
+
+.slds-datatype-picklist {
+  background-color: #fddde3;           /* PALETTE_PINK_90 */
+  color: #8a033e;                       /* PALETTE_PINK_30 */
+}
+
+.slds-datatype-percent {
+  background-color: #e0e5f8;           /* PALETTE_INDIGO_90 */
+  color: #2f2cb7;                       /* PALETTE_INDIGO_30 */
+}
+
+.slds-datatype-phone {
+  background-color: #acf3e4;           /* PALETTE_TEAL_90 */
+  color: #024d4c;                       /* PALETTE_TEAL_30 */
+}
+
+.slds-datatype-email {
+  background-color: #f9e3b6;           /* PALETTE_YELLOW_90 */
+  color: #6f3400;                       /* PALETTE_YELLOW_30 */
+}
+
+.slds-datatype-checkbox {
+  background-color: var(--slds-color-neutral-90);
+  color: var(--slds-color-neutral-30);
+}
+
+/* Additional badge for picklist properties */
+.slds-select-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 500;
+  border-radius: 3px;
+  background-color: var(--slds-color-neutral-95);
+  color: var(--slds-color-neutral-40);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Positive badge (Has Default, Not Restricted) - SLDS Green */
+.slds-badge-positive {
+  background-color: var(--slds-success-background);  /* PALETTE_GREEN_95 */
+  color: var(--slds-success);                        /* PALETTE_GREEN_50 */
+}
+
+/* Neutral/warning badge (No Default, Restricted) - SLDS Yellow/Orange */
+.slds-badge-neutral {
+  background-color: var(--slds-warning-background);  /* PALETTE_ORANGE_95 */
+  color: var(--slds-warning-text);                   /* PALETTE_YELLOW_40 */
+}
+
+.slds-select-no-results {
+  padding: var(--slds-spacing-small);
+  text-align: center;
+  color: var(--slds-text-muted);
+  font-style: italic;
+}
+
+/* Legacy support for native select if needed */
 .slds-select {
   padding: var(--slds-spacing-x-small) var(--slds-spacing-small);
-  font-size: var(--slds-font-size-medium);
+  font-size: var(--slds-font-size-4);  /* 14px - INPUT_STATIC_FONT_SIZE */
   font-family: var(--slds-font-family);
+  font-weight: var(--slds-font-weight-regular);
+  line-height: var(--slds-line-height-text);
   border: 1px solid var(--slds-color-gray-3);
   border-radius: var(--slds-radius-medium);
   background-color: var(--slds-bg-default);

@@ -1,0 +1,567 @@
+.install-options-screen {
+  min-height: 100vh;
+  background-color: #f4f6f9;
+  font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Navigation - Matching AppExchange Screen */
+.install-options-screen .appexchange-topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 56px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.install-options-screen .topnav-left {
+  display: flex;
+  align-items: center;
+}
+
+.install-options-screen .appexchange-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.install-options-screen .salesforce-cloud-icon {
+  width: 40px;
+  height: 28px;
+}
+
+.install-options-screen .logo-text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #032D60;
+}
+
+.install-options-screen .topnav-center {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.install-options-screen .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #181818;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.install-options-screen .nav-link:hover {
+  background: #f4f6f9;
+  color: #0176D3;
+}
+
+.install-options-screen .topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.install-options-screen .search-container {
+  display: flex;
+  align-items: center;
+  background: #f4f6f9;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  width: 280px;
+}
+
+.install-options-screen .search-container .search-icon {
+  color: #706E6B;
+}
+
+.install-options-screen .search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  color: #181818;
+}
+
+.install-options-screen .search-input::placeholder {
+  color: #706E6B;
+}
+
+.install-options-screen .icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #706E6B;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.install-options-screen .icon-btn:hover {
+  background: #f4f6f9;
+  color: #0176D3;
+}
+
+/* Breadcrumb */
+.install-options-screen .breadcrumb-container {
+  background: #fff;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.install-options-screen .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.8125rem;
+}
+
+.install-options-screen .breadcrumb-link {
+  color: #0176D3;
+  text-decoration: none;
+}
+
+.install-options-screen .breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.install-options-screen .breadcrumb-separator {
+  color: #706E6B;
+}
+
+.install-options-screen .breadcrumb-current {
+  color: #706E6B;
+}
+
+/* Install Container */
+.install-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  flex: 1;
+}
+
+/* Install Header */
+.install-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.install-logo {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.install-logo svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.install-title-section {
+  flex: 1;
+}
+
+.install-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #080707;
+  margin: 0 0 0.25rem;
+}
+
+.install-subtitle {
+  font-size: 0.9375rem;
+  color: #706E6B;
+  margin: 0;
+}
+
+/* Install Card */
+.install-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.card-header .warning-icon {
+  color: #FFB800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #080707;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: #706E6B;
+  margin: 0.25rem 0 1rem;
+}
+
+/* Conflict Options */
+.conflict-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 2rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  color: #181818;
+}
+
+.radio-option input[type="radio"] {
+  display: none;
+}
+
+.radio-circle {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #0176D3;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.radio-option input[type="radio"]:checked + .radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background: #0176D3;
+  border-radius: 50%;
+}
+
+.radio-label {
+  color: #181818;
+}
+
+/* Scope Cards */
+.scope-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.scope-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fff;
+}
+
+.scope-card:hover {
+  border-color: #0176D3;
+  box-shadow: 0 2px 8px rgba(1, 118, 211, 0.15);
+}
+
+.scope-card.selected {
+  border-color: #0176D3;
+  background: #f0f7ff;
+}
+
+.scope-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+.scope-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scope-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.scope-radio {
+  margin-bottom: 0.5rem;
+}
+
+.scope-radio input[type="radio"] {
+  display: none;
+}
+
+.scope-radio .radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.scope-card:hover .scope-radio .radio-circle {
+  border-color: #0176D3;
+}
+
+.scope-card.selected .scope-radio .radio-circle {
+  border-color: #0176D3;
+}
+
+.scope-card.selected .scope-radio .radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  background: #0176D3;
+  border-radius: 50%;
+}
+
+.scope-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #080707;
+  margin-bottom: 0.25rem;
+}
+
+.scope-description {
+  font-size: 0.8125rem;
+  color: #706E6B;
+}
+
+.profiles-placeholder {
+  background: #f4f6f9;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.profiles-placeholder p {
+  margin: 0;
+  color: #706E6B;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+/* Metadata Card */
+.metadata-card {
+  /* Additional styling for metadata */
+}
+
+.metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metadata-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metadata-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #706E6B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metadata-value {
+  font-size: 0.9375rem;
+  color: #080707;
+}
+
+.metadata-description {
+  padding-top: 1rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.metadata-description p {
+  font-size: 0.9375rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0.5rem 0 0;
+}
+
+.view-components-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #0176D3;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-components-link:hover {
+  text-decoration: underline;
+}
+
+/* Install Actions */
+.install-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+.install-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: #0176D3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.install-btn:hover {
+  background: #014486;
+}
+
+.cancel-btn {
+  padding: 0.75rem 2rem;
+  background: #fff;
+  color: #181818;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-btn:hover {
+  background: #f4f6f9;
+  border-color: #999;
+}
+
+/* Footer */
+.install-options-screen .appexchange-footer {
+  background: #032D60;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  margin-top: auto;
+}
+
+.install-options-screen .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.install-options-screen .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.install-options-screen .footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.install-options-screen .footer-links a:hover {
+  text-decoration: underline;
+}
+
+.install-options-screen .footer-divider {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.install-options-screen .footer-copyright {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .install-options-screen .topnav-center {
+    display: none;
+  }
+  
+  .install-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .scope-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .metadata-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .install-actions {
+    flex-direction: column;
+  }
+  
+  .install-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+}

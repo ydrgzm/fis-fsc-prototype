@@ -1,35 +1,76 @@
-/* SLDS-inspired CSS Variables */
+/* SLDS 2 Design System CSS Variables */
 :root {
-  /* Brand Colors */
-  --slds-brand-primary: #0176d3;
-  --slds-brand-primary-dark: #014486;
-  --slds-brand-primary-light: #1b96ff;
+  /* Brand Colors - SLDS Blue Palette */
+  --slds-brand-primary: #066afe;        /* PALETTE_BLUE_60 - Primary brand blue */
+  --slds-brand-primary-active: #0176d3; /* PALETTE_BLUE_50 - Hover/Active state */
+  --slds-brand-primary-dark: #014486;   /* PALETTE_BLUE_30 - Dark variant */
+  --slds-brand-accessible: #0176d3;     /* BRAND_ACCESSIBLE - Accessible with white */
+  --slds-brand-text-link: #0b5cab;      /* BRAND_TEXT_LINK - Link text */
+  --slds-brand-background: #eef4ff;     /* PALETTE_BLUE_95 - Light brand background */
   
-  /* Neutral Colors */
-  --slds-color-gray-1: #f3f3f3;
-  --slds-color-gray-2: #e5e5e5;
-  --slds-color-gray-3: #c9c9c9;
-  --slds-color-gray-4: #939393;
-  --slds-color-gray-5: #706e6b;
-  --slds-color-gray-6: #514f4d;
-  --slds-color-gray-7: #3e3e3c;
-  --slds-color-gray-8: #2b2826;
+  /* Neutral Palette - SLDS Neutral Colors */
+  --slds-color-neutral-10: #181818;     /* PALETTE_NEUTRAL_10 - Darkest */
+  --slds-color-neutral-20: #2e2e2e;     /* PALETTE_NEUTRAL_20 */
+  --slds-color-neutral-30: #444444;     /* PALETTE_NEUTRAL_30 */
+  --slds-color-neutral-40: #5c5c5c;     /* PALETTE_NEUTRAL_40 */
+  --slds-color-neutral-50: #747474;     /* PALETTE_NEUTRAL_50 */
+  --slds-color-neutral-60: #939393;     /* PALETTE_NEUTRAL_60 */
+  --slds-color-neutral-70: #aeaeae;     /* PALETTE_NEUTRAL_70 */
+  --slds-color-neutral-80: #c9c9c9;     /* PALETTE_NEUTRAL_80 */
+  --slds-color-neutral-90: #e5e5e5;     /* PALETTE_NEUTRAL_90 */
+  --slds-color-neutral-95: #f3f3f3;     /* PALETTE_NEUTRAL_95 */
+  --slds-color-neutral-100: #ffffff;    /* PALETTE_NEUTRAL_100 */
   
-  /* Text Colors */
-  --slds-text-default: #181818;
-  --slds-text-weak: #706e6b;
-  --slds-text-inverse: #ffffff;
+  /* Legacy gray aliases for compatibility */
+  --slds-color-gray-1: var(--slds-color-neutral-95);
+  --slds-color-gray-2: var(--slds-color-neutral-90);
+  --slds-color-gray-3: var(--slds-color-neutral-80);
+  --slds-color-gray-4: var(--slds-color-neutral-60);
+  --slds-color-gray-5: var(--slds-color-neutral-50);
+  --slds-color-gray-6: var(--slds-color-neutral-40);
+  --slds-color-gray-7: var(--slds-color-neutral-30);
+  --slds-color-gray-8: var(--slds-color-neutral-20);
   
-  /* Background Colors */
-  --slds-bg-default: #ffffff;
-  --slds-bg-alt: #f3f3f3;
-  --slds-bg-inverse: #0176d3;
+  /* Text Colors - SLDS Semantic */
+  --slds-text-default: #181818;         /* COLOR_TEXT_DEFAULT - PALETTE_NEUTRAL_10 */
+  --slds-text-weak: #444444;            /* COLOR_TEXT_WEAK - PALETTE_NEUTRAL_30 */
+  --slds-text-label: #444444;           /* COLOR_TEXT_LABEL - PALETTE_NEUTRAL_30 */
+  --slds-text-placeholder: #747474;     /* COLOR_TEXT_PLACEHOLDER - PALETTE_NEUTRAL_50 */
+  --slds-text-inverse: #ffffff;         /* COLOR_TEXT_INVERSE */
+  --slds-text-muted: var(--slds-color-neutral-50);
   
-  /* Success/Error/Warning */
-  --slds-success: #2e844a;
-  --slds-success-light: #45c65a;
-  --slds-error: #ba0517;
-  --slds-warning: #fe9339;
+  /* Background Colors - SLDS Semantic */
+  --slds-bg-default: #ffffff;           /* COLOR_BACKGROUND_ALT - White */
+  --slds-bg-alt: #f3f3f3;               /* COLOR_BACKGROUND - PALETTE_NEUTRAL_95 */
+  --slds-bg-inverse: #001639;           /* COLOR_BACKGROUND_INVERSE - PALETTE_BLUE_10 */
+  --slds-bg-highlight: #faffbd;         /* COLOR_BACKGROUND_HIGHLIGHT */
+  
+  /* Success Colors - SLDS Green Palette */
+  --slds-success: #2e844a;              /* PALETTE_GREEN_50 - Dark, accessible */
+  --slds-success-light: #45c65a;        /* PALETTE_GREEN_70 */
+  --slds-success-dark: #194e31;         /* PALETTE_GREEN_30 */
+  --slds-success-background: #ebf7e6;   /* PALETTE_GREEN_95 */
+  --slds-success-border: #91db8b;       /* PALETTE_GREEN_80 */
+  
+  /* Error Colors - SLDS Red Palette */
+  --slds-error: #ea001e;                /* PALETTE_RED_50 - Primary error */
+  --slds-error-dark: #ba0517;           /* PALETTE_RED_40 - Dark, accessible */
+  --slds-error-darker: #8e030f;         /* PALETTE_RED_30 */
+  --slds-error-background: #fef1ee;     /* PALETTE_RED_95 */
+  --slds-error-border: #fe8f7d;         /* PALETTE_RED_70 */
+  
+  /* Warning Colors - SLDS Orange Palette */
+  --slds-warning: #fe9339;              /* PALETTE_ORANGE_70 */
+  --slds-warning-dark: #a96404;         /* PALETTE_ORANGE_50 */
+  --slds-warning-background: #fff1ea;   /* PALETTE_ORANGE_95 */
+  --slds-warning-border: #fe9339;       /* PALETTE_ORANGE_70 */
+  --slds-warning-text: #8c4b02;         /* PALETTE_YELLOW_40 - Warning text on light bg */
+  
+  /* Informational Colors - SLDS Cloud Blue Palette */
+  --slds-info: #0d9dda;                 /* PALETTE_CLOUD_BLUE_60 */
+  --slds-info-dark: #107cad;            /* PALETTE_CLOUD_BLUE_50 */
+  --slds-info-background: #eaf5fe;      /* PALETTE_CLOUD_BLUE_95 */
+  --slds-info-border: #90d0fe;          /* PALETTE_CLOUD_BLUE_80 */
   
   /* Spacing */
   --slds-spacing-xx-small: 0.25rem;
@@ -48,17 +89,43 @@
   --slds-shadow-card: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   --slds-shadow-dropdown: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
   
-  /* Typography */
-  --slds-font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --slds-font-size-small: 0.75rem;
-  --slds-font-size-medium: 0.875rem;
-  --slds-font-size-large: 1rem;
-  --slds-font-size-x-large: 1.25rem;
-  --slds-font-size-heading: 1.5rem;
+  /* Typography - SLDS 2 Design Tokens */
+  /* Font Family */
+  --slds-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --slds-font-family-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --slds-font-family-monospace: Consolas, Menlo, Monaco, Courier, monospace;
   
-  --slds-line-height: 1.5;
-  --slds-font-weight-regular: 400;
-  --slds-font-weight-bold: 700;
+  /* Font Sizes - SLDS 2 Scale */
+  --slds-font-size-1: 0.625rem;   /* 10px - Smallest, use sparingly */
+  --slds-font-size-2: 0.75rem;    /* 12px - Form labels, helper text */
+  --slds-font-size-3: 0.8125rem;  /* 13px - Small body text */
+  --slds-font-size-4: 0.875rem;   /* 14px - Default body text */
+  --slds-font-size-5: 1rem;       /* 16px - Large body, small headings */
+  --slds-font-size-6: 1.125rem;   /* 18px - Section headings */
+  --slds-font-size-7: 1.25rem;    /* 20px - Page section titles */
+  --slds-font-size-8: 1.5rem;     /* 24px - Page titles */
+  --slds-font-size-9: 1.75rem;    /* 28px - Large page titles */
+  --slds-font-size-10: 2rem;      /* 32px - Hero headings */
+  --slds-font-size-11: 2.625rem;  /* 42px - Display headings */
+  
+  /* Semantic Font Size Aliases */
+  --slds-font-size-small: var(--slds-font-size-2);      /* 12px */
+  --slds-font-size-medium: var(--slds-font-size-4);     /* 14px - Default */
+  --slds-font-size-large: var(--slds-font-size-5);      /* 16px */
+  --slds-font-size-x-large: var(--slds-font-size-7);    /* 20px */
+  --slds-font-size-heading: var(--slds-font-size-8);    /* 24px */
+  --slds-font-size-heading-large: var(--slds-font-size-9); /* 28px */
+  --slds-font-size-display: var(--slds-font-size-10);   /* 32px */
+  
+  /* Line Heights - SLDS 2 */
+  --slds-line-height-reset: 1;      /* Remove extra leading */
+  --slds-line-height-heading: 1.25; /* Headings - tighter */
+  --slds-line-height-text: 1.5;     /* Body text - comfortable reading */
+  --slds-line-height: var(--slds-line-height-text); /* Default alias */
+  
+  /* Font Weights - SLDS 2 */
+  --slds-font-weight-regular: 400;  /* Normal body text */
+  --slds-font-weight-bold: 700;     /* Emphasis, headings */
 }
 
 * {
@@ -68,11 +135,13 @@
 body {
   margin: 0;
   font-family: var(--slds-font-family);
-  font-size: var(--slds-font-size-medium);
-  line-height: var(--slds-line-height);
+  font-size: var(--slds-font-size-medium);  /* 14px - SLDS default body size */
+  line-height: var(--slds-line-height-text); /* 1.5 - comfortable reading */
   color: var(--slds-text-default);
   background-color: var(--slds-bg-alt);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -80,20 +149,78 @@ body {
   min-height: 100vh;
 }
 
+/* Headings - SLDS 2 Typography Scale */
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-family: var(--slds-font-family-heading);
   font-weight: var(--slds-font-weight-bold);
+  line-height: var(--slds-line-height-heading); /* 1.25 - tighter for headings */
+  color: var(--slds-text-default);
+}
+
+h1 {
+  font-size: var(--slds-font-size-8);  /* 24px */
+}
+
+h2 {
+  font-size: var(--slds-font-size-7);  /* 20px */
+}
+
+h3 {
+  font-size: var(--slds-font-size-6);  /* 18px */
+}
+
+h4 {
+  font-size: var(--slds-font-size-5);  /* 16px */
+}
+
+h5 {
+  font-size: var(--slds-font-size-4);  /* 14px */
+}
+
+h6 {
+  font-size: var(--slds-font-size-3);  /* 13px */
 }
 
 p {
   margin: 0;
+  line-height: var(--slds-line-height-text);
 }
 
+/* Links - SLDS 2 */
 a {
-  color: var(--slds-brand-primary);
+  color: var(--slds-brand-text-link);  /* BRAND_TEXT_LINK for accessibility */
   text-decoration: none;
 }
 
 a:hover {
+  color: var(--slds-brand-primary-dark); /* Darker on hover */
   text-decoration: underline;
+}
+
+a:active {
+  color: var(--slds-brand-primary-dark);
+}
+
+/* Small/Helper text utility */
+.slds-text-small {
+  font-size: var(--slds-font-size-2);  /* 12px */
+}
+
+/* Body small variant */
+.slds-text-body_small {
+  font-size: var(--slds-font-size-3);  /* 13px */
+}
+
+/* Label text */
+.slds-text-label {
+  font-size: var(--slds-font-size-2);  /* 12px */
+  font-weight: var(--slds-font-weight-bold);
+  color: var(--slds-text-label);
+}
+
+/* Monospace/code text */
+code, pre, .slds-text-monospace {
+  font-family: var(--slds-font-family-monospace);
+  font-size: var(--slds-font-size-3);  /* 13px */
 }

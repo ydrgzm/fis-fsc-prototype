@@ -42,10 +42,16 @@ export interface RunConfig {
   customTime: string;
 }
 
+export interface InstallConfig {
+  conflictHandling: 'doNotInstall' | 'rename';
+  installScope: 'admins' | 'allUsers' | 'specificProfiles';
+}
+
 export interface WizardData {
   setup: SetupConfig;
   mappings: FieldMapping[];
   run: RunConfig;
+  installConfig: InstallConfig;
 }
 
 interface WizardContextType {
@@ -57,6 +63,9 @@ interface WizardContextType {
   updateSetup: (setup: SetupConfig) => void;
   updateMappings: (mappings: FieldMapping[]) => void;
   updateRun: (run: RunConfig) => void;
+  updateInstallConfig: (installConfig: InstallConfig) => void;
+  preWizardStep: number;
+  setPreWizardStep: (step: number) => void;
   showToast: boolean;
   setShowToast: (show: boolean) => void;
   toastMessage: string;
@@ -89,41 +98,120 @@ const defaultSetupConfig: SetupConfig = {
 };
 
 const defaultMappings: FieldMapping[] = [
+  // Account mappings
   {
-    sourceField: 'FIS.Balance',
-    targetField: 'FSC.Value',
+    sourceField: 'FIS.customerId',
+    targetField: 'Account.FinServ__CustomerID__c',
     enabled: true,
     dataFixes: [
-      { id: 'removeCurrency', label: 'Remove currency symbols', example: '$100 → 100', enabled: true },
-      { id: 'convertNotation', label: 'Convert financial notations to multiples', example: '1M → 1,000,000', enabled: true },
-      { id: 'decimalPlaces', label: 'Convert to 2-decimal values', example: '100 → 100.00', enabled: false },
+      { id: 'trimWhitespace', label: 'Trim whitespace', example: '  CUST123  → CUST123', enabled: true },
     ],
   },
   {
-    sourceField: 'FIS.AssetType',
-    targetField: 'FSC.Type',
+    sourceField: 'FIS.firstName',
+    targetField: 'Account.FirstName',
     enabled: true,
     dataFixes: [
-      { id: 'codesToLabels', label: 'Convert codes to labels', example: '10 → Checking, 30 → Savings', enabled: true },
-      { id: 'defaultValue', label: 'Empty values will be set to default value <value> in FSC. Check to override to user defined default value:', example: '', enabled: false },
+      { id: 'trimWhitespace', label: 'Trim whitespace', example: '  John  → John', enabled: true },
+      { id: 'toTitleCase', label: 'Convert to title case', example: 'JOHN → John', enabled: true },
     ],
   },
   {
-    sourceField: 'FIS.AccountNumber',
-    targetField: 'FSC.AcctNumber',
+    sourceField: 'FIS.lastName',
+    targetField: 'Account.LastName',
     enabled: true,
     dataFixes: [
-      { id: 'toLowerCase', label: 'Convert alphabets to lower case', example: '123ABC → 123abc', enabled: false },
+      { id: 'trimWhitespace', label: 'Trim whitespace', example: '  Smith  → Smith', enabled: true },
+      { id: 'toTitleCase', label: 'Convert to title case', example: 'SMITH → Smith', enabled: true },
     ],
   },
   {
-    sourceField: 'FIS.Contact',
-    targetField: 'FSC.Phone',
+    sourceField: 'FIS.dateOfBirth',
+    targetField: 'Account.PersonBirthdate',
     enabled: true,
     dataFixes: [
-      { id: 'phoneNational', label: 'Standardize phone format: National standard', example: '(234) 555-6666', enabled: false },
-      { id: 'phoneNANP', label: 'Standardize phone format: NANP standard', example: '234-555-6666', enabled: true },
-      { id: 'phoneE164', label: 'Standardize phone format: E.164 international standard', example: '+12345556666', enabled: false },
+      { id: 'dateISO', label: 'Standardize to ISO format', example: '12/10/1985 → 1985-12-10', enabled: true },
+    ],
+  },
+  {
+    sourceField: 'FIS.annualIncomeInThousands',
+    targetField: 'Account.FinServ__AnnualIncome__pc',
+    enabled: true,
+    dataFixes: [
+      { id: 'convertThousands', label: 'Convert from thousands to actual value', example: '75 → 75000', enabled: true },
+      { id: 'decimalPlaces', label: 'Convert to 2-decimal values', example: '75000 → 75000.00', enabled: false },
+    ],
+  },
+  // Financial Account mappings
+  {
+    sourceField: 'FIS.accountNumber',
+    targetField: 'FinancialAccount.FinServ__FinancialAccountNumber__c',
+    enabled: true,
+    dataFixes: [
+      { id: 'trimWhitespace', label: 'Trim whitespace', example: '  123456  → 123456', enabled: true },
+      { id: 'toUpperCase', label: 'Convert to uppercase', example: 'acc123 → ACC123', enabled: false },
+    ],
+  },
+  {
+    sourceField: 'FIS.accountType',
+    targetField: 'FinancialAccount.FinServ__FinancialAccountType__c',
+    enabled: true,
+    dataFixes: [
+      { id: 'codesToLabels', label: 'Convert codes to labels', example: 'CHK → Checking, SAV → Savings', enabled: true },
+      { id: 'defaultValue', label: 'Set default value for empty fields:', example: '', enabled: false },
+    ],
+  },
+  {
+    sourceField: 'FIS.balances.currentBalance',
+    targetField: 'FinancialAccount.FinServ__Balance__c',
+    enabled: true,
+    dataFixes: [
+      { id: 'removeCurrency', label: 'Remove currency symbols', example: '$1,234.56 → 1234.56', enabled: true },
+      { id: 'convertNotation', label: 'Convert financial notations', example: '1.5M → 1500000', enabled: true },
+      { id: 'decimalPlaces', label: 'Convert to 2-decimal values', example: '1234 → 1234.00', enabled: false },
+    ],
+  },
+  {
+    sourceField: 'FIS.dateOpened',
+    targetField: 'FinancialAccount.FinServ__OpenDate__c',
+    enabled: true,
+    dataFixes: [
+      { id: 'dateISO', label: 'Standardize to ISO format', example: '01/15/2020 → 2020-01-15', enabled: true },
+    ],
+  },
+  {
+    sourceField: 'FIS.interest.currentInterestRate',
+    targetField: 'FinancialAccount.FinServ__InterestRate__c',
+    enabled: true,
+    dataFixes: [
+      { id: 'percentToDecimal', label: 'Convert percent to decimal', example: '5.25% → 0.0525', enabled: false },
+      { id: 'removePercent', label: 'Remove percent symbol only', example: '5.25% → 5.25', enabled: true },
+    ],
+  },
+  // Transaction mappings
+  {
+    sourceField: 'FIS.transactionAmount',
+    targetField: 'FinancialAccountTransaction.FinServ__Amount__c',
+    enabled: true,
+    dataFixes: [
+      { id: 'removeCurrency', label: 'Remove currency symbols', example: '$500.00 → 500.00', enabled: true },
+      { id: 'handleNegative', label: 'Handle negative amounts', example: '(500) → -500', enabled: true },
+    ],
+  },
+  {
+    sourceField: 'FIS.transactionDates.postingDate',
+    targetField: 'FinancialAccountTransaction.FinServ__PostDate__c',
+    enabled: true,
+    dataFixes: [
+      { id: 'dateISO', label: 'Standardize to ISO format', example: '12/10/2025 → 2025-12-10', enabled: true },
+    ],
+  },
+  {
+    sourceField: 'FIS.debitCreditFlag',
+    targetField: 'FinancialAccountTransaction.FinServ__TransactionType__c',
+    enabled: true,
+    dataFixes: [
+      { id: 'codesToLabels', label: 'Convert codes to labels', example: 'D → Debit, C → Credit', enabled: true },
     ],
   },
 ];
@@ -135,15 +223,22 @@ const defaultRunConfig: RunConfig = {
   customTime: '',
 };
 
+const defaultInstallConfig: InstallConfig = {
+  conflictHandling: 'doNotInstall',
+  installScope: 'admins',
+};
+
 const WizardContext = createContext<WizardContextType | undefined>(undefined);
 
 export function WizardProvider({ children }: { children: ReactNode }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [visitedSteps, setVisitedSteps] = useState<Set<number>>(new Set([1]));
+  const [preWizardStep, setPreWizardStep] = useState(0);
   const [wizardData, setWizardData] = useState<WizardData>({
     setup: defaultSetupConfig,
     mappings: defaultMappings,
     run: defaultRunConfig,
+    installConfig: defaultInstallConfig,
   });
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -164,6 +259,10 @@ export function WizardProvider({ children }: { children: ReactNode }) {
     setWizardData((prev) => ({ ...prev, run }));
   };
 
+  const updateInstallConfig = (installConfig: InstallConfig) => {
+    setWizardData((prev) => ({ ...prev, installConfig }));
+  };
+
   return (
     <WizardContext.Provider
       value={{
@@ -175,6 +274,9 @@ export function WizardProvider({ children }: { children: ReactNode }) {
         updateSetup,
         updateMappings,
         updateRun,
+        updateInstallConfig,
+        preWizardStep,
+        setPreWizardStep,
         showToast,
         setShowToast,
         toastMessage,

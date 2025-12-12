@@ -1,78 +1,170 @@
-.wizard-progress {
-  display: flex;
-  align-items: stretch;
-  background-color: var(--slds-bg-default);
-  border: 1px solid var(--slds-color-gray-2);
-  border-radius: var(--slds-radius-medium);
-  overflow: hidden;
-  margin-bottom: var(--slds-spacing-large);
+/* Salesforce Lightning Path Component */
+.slds-path {
+  margin-bottom: 24px;
+  background: white;
+  padding: 20px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.wizard-step {
+.slds-path__track {
+  display: flex;
+  align-items: center;
+}
+
+.slds-path__nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.slds-path__item {
   flex: 1;
+  position: relative;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Background layer for border effect */
+.slds-path__item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #c9c9c9;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
+  margin-left: -12px;
+}
+
+.slds-path__item.slds-is-first::before {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+  margin-left: 0;
+  border-radius: 1.25rem 0 0 1.25rem;
+}
+
+.slds-path__item.slds-is-last::before {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%);
+  border-radius: 0 1.25rem 1.25rem 0;
+}
+
+/* Chevron shape using clip-path */
+.slds-path__link {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--slds-spacing-medium) var(--slds-spacing-large);
-  background-color: var(--slds-color-gray-1);
-  color: var(--slds-text-weak);
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  padding: 0 1.25rem;
+  text-decoration: none;
   position: relative;
-  font-size: var(--slds-font-size-medium);
-  font-weight: var(--slds-font-weight-regular);
-  transition: all 0.2s ease;
+  background-color: #e5e5e5;
+  color: #706e6b;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: background-color 0.15s ease;
+  outline: none;
+  cursor: default;
+  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 50%, calc(100% - 11px) 100%, 0 100%, 11px 50%);
+  margin-left: -11px;
+  margin-top: 1px;
 }
 
-.wizard-step.clickable {
+/* First item - no left chevron indent */
+.slds-path__item.slds-is-first .slds-path__link {
+  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 50%, calc(100% - 11px) 100%, 0 100%);
+  margin-left: 1px;
+  border-radius: 1.25rem 0 0 1.25rem;
+}
+
+/* Last item - no right chevron point */
+.slds-path__item.slds-is-last .slds-path__link {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 11px 50%);
+  border-radius: 0 1.25rem 1.25rem 0;
+  width: calc(100% - 3px);
+}
+
+/* First AND last item (single step) */
+.slds-path__item.slds-is-first.slds-is-last .slds-path__link {
+  clip-path: none;
+  border-radius: 1.25rem;
+}
+
+/* Clickable state */
+.slds-path__item.slds-is-clickable .slds-path__link {
   cursor: pointer;
 }
 
-.wizard-step.clickable:hover {
-  background-color: var(--slds-color-gray-2);
+.slds-path__item.slds-is-clickable .slds-path__link:hover {
+  filter: brightness(0.95);
+  text-decoration: none;
 }
 
-.wizard-step.active {
-  background-color: var(--slds-brand-primary);
-  color: var(--slds-text-inverse);
-  font-weight: var(--slds-font-weight-bold);
-}
-
-.wizard-step.completed {
-  background-color: var(--slds-bg-default);
-  color: var(--slds-success);
-}
-
-.step-content {
-  display: flex;
-  align-items: center;
-  gap: var(--slds-spacing-xx-small);
+.slds-path__item.slds-is-clickable .slds-path__link:focus {
   z-index: 1;
 }
 
-.check-icon {
-  flex-shrink: 0;
+/* Incomplete state (future steps) */
+.slds-path__item.slds-is-incomplete .slds-path__link {
+  background-color: #e5e5e5;
+  color: #706e6b;
 }
 
-.step-label {
+/* Complete state (past steps) */
+.slds-path__item.slds-is-complete .slds-path__link {
+  background-color: #a8e8c9; /* Light mint/teal green for completed */
+  color: #0b5d4e;
+}
+
+.slds-path__item.slds-is-complete::before {
+  background-color: #8dd4b4;
+}
+
+/* Current/Active state */
+.slds-path__item.slds-is-current .slds-path__link,
+.slds-path__item.slds-is-active .slds-path__link {
+  background-color: #032d60; /* Dark navy blue */
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.slds-path__item.slds-is-current::before,
+.slds-path__item.slds-is-active::before {
+  background-color: #021b3a;
+}
+
+/* Stage icon (checkmark) */
+.slds-path__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slds-path__stage svg {
+  display: block;
+}
+
+/* Title text */
+.slds-path__title {
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.step-arrow {
-  position: absolute;
-  right: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 24px solid transparent;
-  border-bottom: 24px solid transparent;
-  border-left: 12px solid var(--slds-color-gray-1);
-  z-index: 2;
+/* Hover title for completed steps - hidden by default */
+.slds-path__title-hover {
+  display: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.wizard-step.active .step-arrow {
-  border-left-color: var(--slds-brand-primary);
+/* On hover: hide checkmark, show text for completed steps */
+.slds-path__item.slds-is-complete .slds-path__link:hover .slds-path__stage {
+  display: none;
 }
 
-.wizard-step.completed .step-arrow {
-  border-left-color: var(--slds-bg-default);
+.slds-path__item.slds-is-complete .slds-path__link:hover .slds-path__title-hover {
+  display: block;
 }

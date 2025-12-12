@@ -2,162 +2,224 @@ import { useState } from 'react';
 import { Card, Button } from '../ui';
 import './PreviewScreen.css';
 
-// Mock data based on the wireframe showing realistic financial data
+// Mock data based on real FIS-FSC field mappings
 const mockData = [
   {
-    balance: 'ASHLEY',
-    assetType: 'GONZALEZ',
-    accountNumber: 'Zenith Corp',
-    maxBalance: '$5M',
-    contact: '221-532-2551',
+    customerId: 'CUST-001234',
+    firstName: 'ASHLEY',
+    lastName: 'GONZALEZ',
+    dateOfBirth: '03/15/1985',
+    annualIncome: '75',
+    accountNumber: 'CHK-98765432',
+    accountType: 'CHK',
+    balance: '$5,250,000',
+    dateOpened: '01/15/2020',
+    interestRate: '2.5%',
+    transactionAmount: '($1,500.00)',
+    postingDate: '12/10/2025',
+    debitCreditFlag: 'D',
   },
   {
-    balance: 'robert',
-    assetType: 'Hernandez',
-    accountNumber: 'Elevate Digital',
-    maxBalance: 'USD220000',
-    contact: '(810) 971.8698',
+    customerId: '  CUST-001235  ',
+    firstName: 'robert',
+    lastName: 'HERNANDEZ',
+    dateOfBirth: '1990-07-22',
+    annualIncome: '125',
+    accountNumber: 'sav-12345678',
+    accountType: 'SAV',
+    balance: 'USD220000',
+    dateOpened: '2019-03-10',
+    interestRate: '3.75%',
+    transactionAmount: '$2,500.00',
+    postingDate: '2025-12-09',
+    debitCreditFlag: 'C',
   },
   {
-    balance: 'DAVID',
-    assetType: 'BROWN',
-    accountNumber: 'AstroWave',
-    maxBalance: '95M',
-    contact: '800 599 2717 Ext 6959',
+    customerId: 'CUST-001236',
+    firstName: 'DAVID',
+    lastName: 'BROWN',
+    dateOfBirth: '11/30/1978',
+    annualIncome: '95',
+    accountNumber: 'CHK-55566677',
+    accountType: 'CHK',
+    balance: '95M',
+    dateOpened: '06/20/2018',
+    interestRate: '1.25%',
+    transactionAmount: '(500)',
+    postingDate: '12/08/2025',
+    debitCreditFlag: 'D',
   },
   {
-    balance: 'DANIEL',
-    assetType: 'GARCIA',
-    accountNumber: 'QuantumEdge',
-    maxBalance: '$500,000',
-    contact: '353-457-5239',
+    customerId: 'CUST-001237',
+    firstName: 'JENNIFER',
+    lastName: 'MARTINEZ',
+    dateOfBirth: '05/08/1992',
+    annualIncome: '200',
+    accountNumber: 'MM-44455566',
+    accountType: 'MMA',
+    balance: '$1.5M',
+    dateOpened: '09/12/2021',
+    interestRate: '4.00%',
+    transactionAmount: '$10,000.00',
+    postingDate: '12/07/2025',
+    debitCreditFlag: 'C',
   },
   {
-    balance: 'matthew',
-    assetType: 'willman',
-    accountNumber: 'Skyline Consulting',
-    maxBalance: '12MM',
-    contact: '+1 (794) 507-4180',
+    customerId: '  cust-001238',
+    firstName: 'michael',
+    lastName: 'wilson',
+    dateOfBirth: '1988/02/14',
+    annualIncome: '85.5',
+    accountNumber: 'cd-77788899',
+    accountType: 'CD',
+    balance: '$250,000',
+    dateOpened: '2022/01/01',
+    interestRate: '5.25%',
+    transactionAmount: '$250,000.00',
+    postingDate: '2024-01-01',
+    debitCreditFlag: 'C',
   },
   {
-    balance: 'william',
-    assetType: 'garcia',
-    accountNumber: 'Summit Solutions',
-    maxBalance: 'USD15MM',
-    contact: '800 8426 765',
+    customerId: 'CUST-001239',
+    firstName: '  SARAH  ',
+    lastName: '  JOHNSON  ',
+    dateOfBirth: '12/25/1995',
+    annualIncome: '150',
+    accountNumber: 'LON-11122233',
+    accountType: 'MORT',
+    balance: '$425,000.00',
+    dateOpened: '03/15/2023',
+    interestRate: '6.875%',
+    transactionAmount: '($2,847.33)',
+    postingDate: '12/01/2025',
+    debitCreditFlag: 'D',
   },
   {
-    balance: 'JESSICA',
-    assetType: 'TAYLOR',
-    accountNumber: 'Visionary Tech',
-    maxBalance: '1MM',
-    contact: '+1 482 525 3878',
+    customerId: 'CUST-001240',
+    firstName: 'CHRISTOPHER',
+    lastName: 'ANDERSON',
+    dateOfBirth: '08/17/1982',
+    annualIncome: '300',
+    accountNumber: 'CHK-99900011',
+    accountType: 'CHK',
+    balance: '12MM',
+    dateOpened: '11/30/2017',
+    interestRate: '0.50%',
+    transactionAmount: '$50,000',
+    postingDate: '12/05/2025',
+    debitCreditFlag: 'C',
   },
   {
-    balance: 'CHRISTOPHER',
-    assetType: 'JONES',
-    accountNumber: 'Elevate Digital',
-    maxBalance: '$600K',
-    contact: '+1 (913) 683-9234 Ext 440',
-  },
-  {
-    balance: 'JOSEPH',
-    assetType: 'MILLER',
-    accountNumber: 'Pinnacle Systems',
-    maxBalance: '25M',
-    contact: '+1 255 249 3889',
-  },
-  {
-    balance: 'CHRISTOPHER',
-    assetType: 'THOMAS',
-    accountNumber: 'Silverstone Group',
-    maxBalance: '25M',
-    contact: '+1 (502) 847-3804',
-  },
-  {
-    balance: 'DAVID',
-    assetType: 'Jones',
-    accountNumber: 'Silverstone Group',
-    maxBalance: '90MM',
-    contact: '+1 791 432 4012',
-  },
-  {
-    balance: 'william',
-    assetType: 'rod',
-    accountNumber: 'QuantumEdge',
-    maxBalance: '$7.2M',
-    contact: '(745) 485.2256 Ext 321',
-  },
-  {
-    balance: 'amanda',
-    assetType: 'gonzalez',
-    accountNumber: 'Pinnacle Systems',
-    maxBalance: '$500,000',
-    contact: '(680) 517.9859',
-  },
-  {
-    balance: 'elizabeth',
-    assetType: 'taylor',
-    accountNumber: 'Summit Solutions',
-    maxBalance: '75M',
-    contact: '1 (346) 225-6506 Ext 100',
+    customerId: 'CUST-001241',
+    firstName: 'amanda',
+    lastName: 'TAYLOR',
+    dateOfBirth: '04/03/1990',
+    annualIncome: '180',
+    accountNumber: 'SAV-22233344',
+    accountType: 'SAV',
+    balance: '$875K',
+    dateOpened: '07/22/2019',
+    interestRate: '3.25%',
+    transactionAmount: '(15000)',
+    postingDate: '12/04/2025',
+    debitCreditFlag: 'D',
   },
 ];
 
 // Transform data for "Preview of fixes" view
 const transformData = (data: typeof mockData) => {
   return data.map((row) => ({
-    balance: row.balance.charAt(0).toUpperCase() + row.balance.slice(1).toLowerCase(),
-    assetType: row.assetType.charAt(0).toUpperCase() + row.assetType.slice(1).toLowerCase(),
-    accountNumber: row.accountNumber,
-    maxBalance: convertToNumber(row.maxBalance),
-    contact: formatPhone(row.contact),
+    customerId: row.customerId.trim().toUpperCase(),
+    firstName: toTitleCase(row.firstName.trim()),
+    lastName: toTitleCase(row.lastName.trim()),
+    dateOfBirth: formatDateISO(row.dateOfBirth),
+    annualIncome: convertFromThousands(row.annualIncome),
+    accountNumber: row.accountNumber.trim().toUpperCase(),
+    accountType: convertAccountType(row.accountType),
+    balance: convertCurrency(row.balance),
+    dateOpened: formatDateISO(row.dateOpened),
+    interestRate: row.interestRate.replace('%', ''),
+    transactionAmount: convertTransactionAmount(row.transactionAmount),
+    postingDate: formatDateISO(row.postingDate),
+    debitCreditFlag: row.debitCreditFlag === 'D' ? 'Debit' : 'Credit',
   }));
 };
 
-const convertToNumber = (value: string): string => {
-  // Remove $ and other currency symbols
-  let clean = value.replace(/[$USD,]/g, '').trim();
-  
-  // Convert K, M, MM, B notations
-  if (clean.endsWith('K')) {
-    const num = parseFloat(clean.slice(0, -1));
-    return (num * 1000).toLocaleString();
-  }
-  if (clean.endsWith('MM')) {
-    const num = parseFloat(clean.slice(0, -2));
-    return (num * 1000000).toLocaleString();
-  }
-  if (clean.endsWith('M')) {
-    const num = parseFloat(clean.slice(0, -1));
-    return (num * 1000000).toLocaleString();
-  }
-  if (clean.endsWith('B')) {
-    const num = parseFloat(clean.slice(0, -1));
-    return (num * 1000000000).toLocaleString();
-  }
-  
-  // Already a number
-  const num = parseFloat(clean);
-  return isNaN(num) ? value : num.toLocaleString();
+const toTitleCase = (str: string): string => {
+  return str.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 };
 
-const formatPhone = (value: string): string => {
-  // Extract just digits
-  const digits = value.replace(/\D/g, '');
+const formatDateISO = (date: string): string => {
+  // Handle various date formats and convert to ISO
+  const cleaned = date.replace(/[\/\-]/g, '/');
+  const parts = cleaned.split('/');
   
-  // Handle extension
-  const extMatch = value.match(/ext\.?\s*(\d+)/i);
-  const ext = extMatch ? ` Ext ${extMatch[1]}` : '';
+  if (parts.length === 3) {
+    // Check if already ISO format (YYYY-MM-DD or YYYY/MM/DD)
+    if (parts[0].length === 4) {
+      return `${parts[0]}-${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}`;
+    }
+    // Assume MM/DD/YYYY
+    return `${parts[2]}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
+  }
+  return date;
+};
+
+const convertFromThousands = (value: string): string => {
+  const num = parseFloat(value) * 1000;
+  return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
+const convertCurrency = (value: string): string => {
+  let clean = value.replace(/[$USD,\s]/g, '').trim();
   
-  // Format as NANP: XXX-XXX-XXXX
-  if (digits.length >= 10) {
-    const main = digits.slice(-10);
-    const country = digits.length > 10 ? `+${digits.slice(0, -10)} ` : '';
-    return `${country}${main.slice(0, 3)}-${main.slice(3, 6)}-${main.slice(6)}${ext}`;
+  // Handle parentheses for negative
+  if (clean.startsWith('(') && clean.endsWith(')')) {
+    clean = '-' + clean.slice(1, -1);
   }
   
-  return value;
+  // Convert K, M, MM, B notations
+  let multiplier = 1;
+  if (clean.endsWith('MM')) {
+    multiplier = 1000000;
+    clean = clean.slice(0, -2);
+  } else if (clean.endsWith('M')) {
+    multiplier = 1000000;
+    clean = clean.slice(0, -1);
+  } else if (clean.endsWith('K')) {
+    multiplier = 1000;
+    clean = clean.slice(0, -1);
+  } else if (clean.endsWith('B')) {
+    multiplier = 1000000000;
+    clean = clean.slice(0, -1);
+  }
+  
+  const num = parseFloat(clean) * multiplier;
+  return isNaN(num) ? value : num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
+const convertTransactionAmount = (value: string): string => {
+  let clean = value.replace(/[$,\s]/g, '').trim();
+  
+  // Handle parentheses for negative
+  if (clean.startsWith('(') && clean.endsWith(')')) {
+    clean = '-' + clean.slice(1, -1);
+  }
+  
+  const num = parseFloat(clean);
+  return isNaN(num) ? value : num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
+const convertAccountType = (code: string): string => {
+  const mapping: Record<string, string> = {
+    'CHK': 'Checking',
+    'SAV': 'Savings',
+    'MMA': 'Money Market',
+    'CD': 'Certificate of Deposit',
+    'MORT': 'Mortgage',
+    'LON': 'Loan',
+  };
+  return mapping[code] || code;
 };
 
 export function PreviewScreen() {
@@ -174,32 +236,44 @@ export function PreviewScreen() {
               <tr>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.Balance</span>
-                    <span className="target-name">→ FSC.Value</span>
+                    <span className="source-name">FIS.customerId</span>
+                    <span className="target-name">→ Account.FinServ__CustomerID__c</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.AssetType</span>
-                    <span className="target-name">→ FSC.Type</span>
+                    <span className="source-name">FIS.firstName</span>
+                    <span className="target-name">→ Account.FirstName</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.AccountNumber</span>
-                    <span className="target-name">→ FSC.AcctNumber</span>
+                    <span className="source-name">FIS.lastName</span>
+                    <span className="target-name">→ Account.LastName</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.MaxBalance</span>
-                    <span className="target-name">→ FSC.MaxValue</span>
+                    <span className="source-name">FIS.accountType</span>
+                    <span className="target-name">→ FinancialAccount.FinServ__FinancialAccountType__c</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.Contact</span>
-                    <span className="target-name">→ FSC.Phone</span>
+                    <span className="source-name">FIS.balances.currentBalance</span>
+                    <span className="target-name">→ FinancialAccount.FinServ__Balance__c</span>
+                  </div>
+                </th>
+                <th>
+                  <div className="header-cell">
+                    <span className="source-name">FIS.transactionAmount</span>
+                    <span className="target-name">→ FinancialAccountTransaction.FinServ__Amount__c</span>
+                  </div>
+                </th>
+                <th>
+                  <div className="header-cell">
+                    <span className="source-name">FIS.debitCreditFlag</span>
+                    <span className="target-name">→ FinancialAccountTransaction.FinServ__TransactionType__c</span>
                   </div>
                 </th>
               </tr>
@@ -207,11 +281,13 @@ export function PreviewScreen() {
             <tbody>
               {displayData.map((row, index) => (
                 <tr key={index}>
+                  <td>{row.customerId}</td>
+                  <td>{row.firstName}</td>
+                  <td>{row.lastName}</td>
+                  <td>{row.accountType}</td>
                   <td>{row.balance}</td>
-                  <td>{row.assetType}</td>
-                  <td>{row.accountNumber}</td>
-                  <td>{row.maxBalance}</td>
-                  <td>{row.contact}</td>
+                  <td>{row.transactionAmount}</td>
+                  <td>{row.debitCreditFlag}</td>
                 </tr>
               ))}
             </tbody>

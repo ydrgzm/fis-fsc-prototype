@@ -5,16 +5,19 @@
 }
 
 .slds-input-label {
-  font-size: var(--slds-font-size-small);
+  font-size: var(--slds-font-size-2);  /* 12px - FORM_LABEL_FONT_SIZE */
   font-weight: var(--slds-font-weight-bold);
-  color: var(--slds-text-default);
+  color: var(--slds-text-label);                     /* COLOR_TEXT_LABEL */
+  line-height: var(--slds-line-height-text);
 }
 
 .slds-input {
   padding: var(--slds-spacing-x-small) var(--slds-spacing-small);
-  font-size: var(--slds-font-size-medium);
+  font-size: var(--slds-font-size-4);  /* 14px - INPUT_STATIC_FONT_SIZE */
   font-family: var(--slds-font-family);
-  border: 1px solid var(--slds-color-gray-3);
+  font-weight: var(--slds-font-weight-regular);
+  line-height: var(--slds-line-height-text);
+  border: 1px solid var(--slds-color-neutral-80);    /* COLOR_BORDER_INPUT */
   border-radius: var(--slds-radius-medium);
   background-color: var(--slds-bg-default);
   color: var(--slds-text-default);
@@ -25,22 +28,23 @@
 .slds-input:focus {
   outline: none;
   border-color: var(--slds-brand-primary);
-  box-shadow: 0 0 0 3px rgba(1, 118, 211, 0.15);
+  box-shadow: 0 0 0 3px rgba(27, 150, 255, 0.15);    /* PALETTE_BLUE_60 with transparency */
 }
 
 .slds-input--error {
-  border-color: var(--slds-error);
+  border-color: var(--slds-error);                   /* COLOR_BORDER_ERROR */
 }
 
 .slds-input--error:focus {
-  box-shadow: 0 0 0 3px rgba(186, 5, 23, 0.15);
+  box-shadow: 0 0 0 3px rgba(234, 0, 30, 0.15);      /* PALETTE_RED_50 with transparency */
 }
 
 .slds-input-error {
-  font-size: var(--slds-font-size-small);
-  color: var(--slds-error);
+  font-size: var(--slds-font-size-2);  /* 12px - Error helper text */
+  color: var(--slds-error);                          /* COLOR_TEXT_ERROR */
+  line-height: var(--slds-line-height-text);
 }
 
 .slds-input::placeholder {
-  color: var(--slds-color-gray-4);
+  color: var(--slds-text-placeholder);               /* COLOR_TEXT_PLACEHOLDER */
 }
