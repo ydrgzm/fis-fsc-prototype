@@ -60,11 +60,6 @@ const TARGET_FIELD_OPTIONS: TargetFieldOption[] = [
   { value: 'FinancialAccountTransaction.FinServ__TransactionType__c', label: 'FinancialAccountTransaction.FinServ__TransactionType__c', dataType: 'Picklist', hasDefaultValue: false, isRestricted: false },
 ];
 
-// Get field metadata by value
-const getFieldMetadata = (fieldValue: string): TargetFieldOption | undefined => {
-  return TARGET_FIELD_OPTIONS.find(opt => opt.value === fieldValue);
-};
-
 // Format options for Select component with datatype display
 const getSelectOptions = () => {
   return TARGET_FIELD_OPTIONS.map(opt => {

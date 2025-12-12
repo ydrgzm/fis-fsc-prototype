@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronDown, Star, Search, Heart, MessageCircle, Play, ChevronRight, Menu, User } from 'lucide-react';
+import { ChevronDown, Star, Search, Heart, MessageCircle, Play, ChevronRight, User } from 'lucide-react';
 import { useWizard } from '../../context/WizardContext';
 import './AppExchangeScreen.css';
 import fisLogo from '../../assets/fis-logo.png';

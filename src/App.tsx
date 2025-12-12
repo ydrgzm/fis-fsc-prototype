@@ -12,7 +12,6 @@ function WizardFlow() {
     currentStep, 
     setCurrentStep, 
     markStepVisited, 
-    visitedSteps,
     showToast,
     setShowToast,
     toastMessage,

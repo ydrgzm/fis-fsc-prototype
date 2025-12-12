@@ -26,7 +26,6 @@ export function WizardProgress() {
           {steps.map((step, index) => {
             const isActive = currentStep === step.id;
             const isCompleted = visitedSteps.has(step.id) && currentStep > step.id;
-            const isIncomplete = !isActive && !isCompleted;
             const isClickable = visitedSteps.has(step.id) || step.id <= currentStep;
             const isFirst = index === 0;
             const isLast = index === steps.length - 1;
