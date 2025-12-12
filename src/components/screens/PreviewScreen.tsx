@@ -236,43 +236,43 @@ export function PreviewScreen() {
               <tr>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.customerId</span>
+                    <span className="source-name">customerId</span>
                     <span className="target-name">→ Account.FinServ__CustomerID__c</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.firstName</span>
+                    <span className="source-name">firstName</span>
                     <span className="target-name">→ Account.FirstName</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.lastName</span>
+                    <span className="source-name">lastName</span>
                     <span className="target-name">→ Account.LastName</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.accountType</span>
+                    <span className="source-name">accountType</span>
                     <span className="target-name">→ FinancialAccount.FinServ__FinancialAccountType__c</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.balances.currentBalance</span>
+                    <span className="source-name">balances.currentBalance</span>
                     <span className="target-name">→ FinancialAccount.FinServ__Balance__c</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.transactionAmount</span>
+                    <span className="source-name">transactionAmount</span>
                     <span className="target-name">→ FinancialAccountTransaction.FinServ__Amount__c</span>
                   </div>
                 </th>
                 <th>
                   <div className="header-cell">
-                    <span className="source-name">FIS.debitCreditFlag</span>
+                    <span className="source-name">debitCreditFlag</span>
                     <span className="target-name">→ FinancialAccountTransaction.FinServ__TransactionType__c</span>
                   </div>
                 </th>

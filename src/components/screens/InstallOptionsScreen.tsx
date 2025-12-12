@@ -2,6 +2,8 @@ import { ChevronDown, ChevronRight, Search, AlertTriangle, Heart, User } from 'l
 import { useWizard } from '../../context/WizardContext';
 import type { InstallConfig } from '../../context/WizardContext';
 import './InstallOptionsScreen.css';
+import fisLogo from '../../assets/fis-logo.png';
+import salesforceLogo from '../../assets/salesforce-logo.png';
 
 export function InstallOptionsScreen() {
   const { wizardData, updateInstallConfig, setPreWizardStep } = useWizard();
@@ -29,9 +31,7 @@ export function InstallOptionsScreen() {
       <header className="appexchange-topnav">
         <div className="topnav-left">
           <div className="appexchange-logo">
-            <svg viewBox="0 0 40 28" className="salesforce-cloud-icon">
-              <path d="M16.8 5.6c1.4-1.5 3.4-2.4 5.6-2.4 2.8 0 5.3 1.5 6.6 3.8 1-.4 2.1-.6 3.2-.6 4.4 0 8 3.6 8 8s-3.6 8-8 8H7.2c-4 0-7.2-3.2-7.2-7.2 0-3.6 2.6-6.5 6-7.1.3-2.5 2.4-4.5 5-4.5 1.4 0 2.7.6 3.6 1.5.7.8 1.5 1.8 2.2.5z" fill="#00A1E0"/>
-            </svg>
+            <img src={salesforceLogo} alt="Salesforce" className="salesforce-cloud-icon" />
             <span className="logo-text">AppExchange</span>
           </div>
         </div>
@@ -70,10 +70,7 @@ export function InstallOptionsScreen() {
         {/* Page Header */}
         <div className="install-header">
           <div className="install-logo">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="64" height="64" rx="12" fill="#032D60"/>
-              <text x="32" y="40" textAnchor="middle" fill="white" fontSize="24" fontWeight="bold">FIS</text>
-            </svg>
+            <img src={fisLogo} alt="FIS Logo" />
           </div>
           <div className="install-title-section">
             <h1 className="install-page-title">Install FIS-FSC Integration</h1>
@@ -126,8 +123,8 @@ export function InstallOptionsScreen() {
               <div className="scope-icon">
                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="48" height="48" rx="8" fill="#E8F4FC"/>
-                  <circle cx="24" cy="18" r="8" fill="#0176D3"/>
-                  <path d="M12 40c0-8 5-14 12-14s12 6 12 14" fill="#0176D3"/>
+                  <circle cx="24" cy="18" r="8" fill="#032d60"/>
+                  <path d="M12 40c0-8 5-14 12-14s12 6 12 14" fill="#032d60"/>
                   <circle cx="24" cy="10" r="3" fill="#FFB800"/>
                 </svg>
               </div>
@@ -153,10 +150,10 @@ export function InstallOptionsScreen() {
               <div className="scope-icon">
                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="48" height="48" rx="8" fill="#E8F4FC"/>
-                  <circle cx="16" cy="18" r="6" fill="#0176D3"/>
-                  <circle cx="32" cy="18" r="6" fill="#0176D3"/>
-                  <path d="M8 38c0-6 4-10 8-10s8 4 8 10" fill="#0176D3"/>
-                  <path d="M24 38c0-6 4-10 8-10s8 4 8 10" fill="#0176D3"/>
+                  <circle cx="16" cy="18" r="6" fill="#032d60"/>
+                  <circle cx="32" cy="18" r="6" fill="#032d60"/>
+                  <path d="M8 38c0-6 4-10 8-10s8 4 8 10" fill="#032d60"/>
+                  <path d="M24 38c0-6 4-10 8-10s8 4 8 10" fill="#032d60"/>
                 </svg>
               </div>
               <div className="scope-content">
@@ -181,10 +178,10 @@ export function InstallOptionsScreen() {
               <div className="scope-icon">
                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="48" height="48" rx="8" fill="#E8F4FC"/>
-                  <circle cx="24" cy="16" r="5" fill="#0176D3"/>
+                  <circle cx="24" cy="16" r="5" fill="#032d60"/>
                   <circle cx="14" cy="22" r="4" fill="#706E6B"/>
                   <circle cx="34" cy="22" r="4" fill="#706E6B"/>
-                  <path d="M16 38c0-5 4-9 8-9s8 4 8 9" fill="#0176D3"/>
+                  <path d="M16 38c0-5 4-9 8-9s8 4 8 9" fill="#032d60"/>
                 </svg>
               </div>
               <div className="scope-content">

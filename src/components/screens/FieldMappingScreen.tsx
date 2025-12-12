@@ -260,7 +260,7 @@ function MappingRow({ mapping, index, onChange }: MappingRowProps) {
                 />
               )}
               {RECOMMENDED_FIX_IDS.has(fix.id) && (
-                <span className="recommended-badge">Recommended</span>
+                <span className="recommended-badge">R</span>
               )}
               {fix.example && (
                 <span className="fix-example">e.g. {fix.example}</span>
@@ -298,7 +298,7 @@ export function FieldMappingScreen() {
     <div className="field-mapping-screen">
       <Card>
         <div className="recommended-note">
-          <span className="recommended-note-icon">💡</span>
+          <span className="recommended-note-icon">⚠️</span>
           <span className="recommended-note-text">
             <strong>Recommended fixes are pre-selected.</strong> These data transformations are commonly needed for FIS to FSC migrations. You can customize selections based on your specific data requirements.
           </span>

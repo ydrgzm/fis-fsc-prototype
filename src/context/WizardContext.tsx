@@ -100,7 +100,7 @@ const defaultSetupConfig: SetupConfig = {
 const defaultMappings: FieldMapping[] = [
   // Account mappings
   {
-    sourceField: 'FIS.customerId',
+    sourceField: 'customerId',
     targetField: 'Account.FinServ__CustomerID__c',
     enabled: true,
     dataFixes: [
@@ -108,7 +108,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.firstName',
+    sourceField: 'firstName',
     targetField: 'Account.FirstName',
     enabled: true,
     dataFixes: [
@@ -117,7 +117,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.lastName',
+    sourceField: 'lastName',
     targetField: 'Account.LastName',
     enabled: true,
     dataFixes: [
@@ -126,7 +126,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.dateOfBirth',
+    sourceField: 'dateOfBirth',
     targetField: 'Account.PersonBirthdate',
     enabled: true,
     dataFixes: [
@@ -134,7 +134,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.annualIncomeInThousands',
+    sourceField: 'annualIncomeInThousands',
     targetField: 'Account.FinServ__AnnualIncome__pc',
     enabled: true,
     dataFixes: [
@@ -144,7 +144,7 @@ const defaultMappings: FieldMapping[] = [
   },
   // Financial Account mappings
   {
-    sourceField: 'FIS.accountNumber',
+    sourceField: 'accountNumber',
     targetField: 'FinancialAccount.FinServ__FinancialAccountNumber__c',
     enabled: true,
     dataFixes: [
@@ -153,7 +153,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.accountType',
+    sourceField: 'accountType',
     targetField: 'FinancialAccount.FinServ__FinancialAccountType__c',
     enabled: true,
     dataFixes: [
@@ -162,7 +162,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.balances.currentBalance',
+    sourceField: 'balances.currentBalance',
     targetField: 'FinancialAccount.FinServ__Balance__c',
     enabled: true,
     dataFixes: [
@@ -172,7 +172,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.dateOpened',
+    sourceField: 'dateOpened',
     targetField: 'FinancialAccount.FinServ__OpenDate__c',
     enabled: true,
     dataFixes: [
@@ -180,7 +180,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.interest.currentInterestRate',
+    sourceField: 'interest.currentInterestRate',
     targetField: 'FinancialAccount.FinServ__InterestRate__c',
     enabled: true,
     dataFixes: [
@@ -190,7 +190,7 @@ const defaultMappings: FieldMapping[] = [
   },
   // Transaction mappings
   {
-    sourceField: 'FIS.transactionAmount',
+    sourceField: 'transactionAmount',
     targetField: 'FinancialAccountTransaction.FinServ__Amount__c',
     enabled: true,
     dataFixes: [
@@ -199,7 +199,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.transactionDates.postingDate',
+    sourceField: 'transactionDates.postingDate',
     targetField: 'FinancialAccountTransaction.FinServ__PostDate__c',
     enabled: true,
     dataFixes: [
@@ -207,7 +207,7 @@ const defaultMappings: FieldMapping[] = [
     ],
   },
   {
-    sourceField: 'FIS.debitCreditFlag',
+    sourceField: 'debitCreditFlag',
     targetField: 'FinancialAccountTransaction.FinServ__TransactionType__c',
     enabled: true,
     dataFixes: [

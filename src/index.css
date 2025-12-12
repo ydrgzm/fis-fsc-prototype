@@ -1,11 +1,11 @@
 /* SLDS 2 Design System CSS Variables */
 :root {
   /* Brand Colors - SLDS Blue Palette */
-  --slds-brand-primary: #066afe;        /* PALETTE_BLUE_60 - Primary brand blue */
-  --slds-brand-primary-active: #0176d3; /* PALETTE_BLUE_50 - Hover/Active state */
-  --slds-brand-primary-dark: #014486;   /* PALETTE_BLUE_30 - Dark variant */
-  --slds-brand-accessible: #0176d3;     /* BRAND_ACCESSIBLE - Accessible with white */
-  --slds-brand-text-link: #0b5cab;      /* BRAND_TEXT_LINK - Link text */
+  --slds-brand-primary: #032d60;        /* Primary brand navy blue */
+  --slds-brand-primary-active: #021b3a; /* Hover/Active state - darker navy */
+  --slds-brand-primary-dark: #011226;   /* Dark variant */
+  --slds-brand-accessible: #032d60;     /* BRAND_ACCESSIBLE - Accessible with white */
+  --slds-brand-text-link: #032d60;      /* BRAND_TEXT_LINK - Link text */
   --slds-brand-background: #eef4ff;     /* PALETTE_BLUE_95 - Light brand background */
   
   /* Neutral Palette - SLDS Neutral Colors */
