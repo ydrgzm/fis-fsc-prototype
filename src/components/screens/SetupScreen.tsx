@@ -29,10 +29,10 @@ function LoadBlock({ title, subtitle, loadType, config, onChange }: LoadBlockPro
     });
   };
 
-  const handleAPIChange = (value: string) => {
+  const handleAPIChange = (field: 'organizationId' | 'sourceId', value: string) => {
     onChange(loadType, {
       ...config,
-      api: { key: value },
+      api: { ...config.api, [field]: value },
     });
   };
 
@@ -100,12 +100,26 @@ function LoadBlock({ title, subtitle, loadType, config, onChange }: LoadBlockPro
           {config.sourceType === 'api' && (
             <div className="api-fields">
               <div className="field-row">
-                <span className="field-label">API Key</span>
-                <Input
-                  value={config.api.key}
-                  onChange={(e) => handleAPIChange(e.target.value)}
-                  placeholder="Enter API key"
-                />
+                <span className="field-label">Organization Id</span>
+                <div className="input-with-help">
+                  <Input
+                    value={config.api.organizationId}
+                    onChange={(e) => handleAPIChange('organizationId', e.target.value)}
+                    placeholder="Enter organization ID"
+                  />
+                  {/* <div className="field-help-text">The unique identifier corresponding to the institution making the request</div> */}
+                </div>
+              </div>
+              <div className="field-row">
+                <span className="field-label">Source Id</span>
+                <div className="input-with-help">
+                  <Input
+                    value={config.api.sourceId}
+                    onChange={(e) => handleAPIChange('sourceId', e.target.value)}
+                    placeholder="Enter source ID"
+                  />
+                  {/* <div className="field-help-text">Source Id. 6 character ID provided by FIS</div> */}
+                </div>
               </div>
             </div>
           )}

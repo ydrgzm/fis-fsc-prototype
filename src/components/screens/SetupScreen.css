@@ -81,3 +81,22 @@
   max-width: 350px;
 }
 
+.field-row .input-with-help {
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-row .input-with-help .slds-input-wrapper {
+  width: 100%;
+  max-width: none;
+  flex: none;
+}
+
+.field-help-text {
+  font-size: 11px;
+  color: #514f4d;
+  line-height: 1.3;
+}

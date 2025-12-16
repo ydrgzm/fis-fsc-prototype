@@ -12,7 +12,8 @@ export interface LoadConfig {
     password: string;
   };
   api: {
-    key: string;
+    organizationId: string;
+    sourceId: string;
   };
 }
 
@@ -82,19 +83,19 @@ const defaultSetupConfig: SetupConfig = {
       id: 'admin567',
       password: 'Xnlfj763q;d',
     },
-    api: { key: '' },
+    api: { organizationId: '', sourceId: '' },
   },
   dailyLoad: {
     enabled: true,
     sourceType: 'api',
     sftp: { location: '', id: '', password: '' },
-    api: { key: 'ABC12345XYZ8765' },
+    api: { organizationId: 'ORG-001', sourceId: 'src_123' },
   },
   onDemandLoad: {
     enabled: true,
     sourceType: 'api',
     sftp: { location: '', id: '', password: '' },
-    api: { key: 'ABC12345XYZ8765' },
+    api: { organizationId: 'ORG-001', sourceId: 'src_123' },
   },
 };
 
