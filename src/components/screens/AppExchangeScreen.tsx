@@ -68,7 +68,7 @@ export function AppExchangeScreen() {
             <h1 className="listing-title">FIS-FSC Integration | Financial Services Cloud Connector</h1>
             <p className="listing-byline">By <a href="#" className="provider-link">DatalAm</a></p>
             <p className="listing-description">
-              Built for financial institutions digitally transforming their operations, this integration seamlessly connects FIS core banking data with Salesforce Financial Services Cloud, enabling real-time account synchronization, transaction visibility, and unified customer profiles.
+              Built for financial institutions digitally transforming their operations, this integration seamlessly connects FIS core banking data with Salesforce Financial Services Cloud, enabling account synchronization, transaction visibility, and unified customer profiles.
             </p>
             <div className="listing-meta">
               <div className="rating-section">
@@ -85,12 +85,12 @@ export function AppExchangeScreen() {
             </div>
           </div>
           <div className="listing-actions">
-            <div className="pricing-card">
+            {/* <div className="pricing-card">
               <div className="price-label">Starting at</div>
               <div className="price-value">$35<span className="price-period">/user/month</span></div>
               <p className="price-note">Contact us for pricing.</p>
               <a href="#" className="pricing-details-link">Pricing Details</a>
-            </div>
+            </div> */}
             <button className="get-it-now-btn" onClick={handleGetItNow}>
               <span className="btn-icon">↓</span>
               Get It Now
