@@ -66,7 +66,7 @@ export function AppExchangeScreen() {
               <span className="badge badge-paid">Paid</span>
               <span className="badge badge-lightning">⚡ Lightning Ready</span>
             </div>
-            <h1 className="listing-title">FIS-FSC Integration | Financial Services Cloud Connector</h1>
+            <h1 className="listing-title">FIS Integration for Financial Services Cloud</h1>
             <p className="listing-byline">By <a href="#" className="provider-link">DatalAm</a></p>
             <p className="listing-description">
               Built for financial institutions digitally transforming their operations, this integration seamlessly connects FIS core banking data with Salesforce Financial Services Cloud, enabling account synchronization, transaction visibility, and unified customer profiles.
