@@ -83,19 +83,19 @@ const defaultSetupConfig: SetupConfig = {
       id: 'admin567',
       password: 'Xnlfj763q;d',
     },
-    api: { organizationId: '', sourceId: '' },
+    api: { organizationId: 'cf0e3fce-3e3f-45f8-94bb-a4936a7e9c74', sourceId: '20566472-8817-3fef-9140-54df868cdb04' },
   },
   dailyLoad: {
     enabled: true,
     sourceType: 'api',
     sftp: { location: '', id: '', password: '' },
-    api: { organizationId: 'ORG-001', sourceId: 'src_123' },
+    api: { organizationId: 'cf0e3fce-3e3f-45f8-94bb-a4936a7e9c74', sourceId: '20566472-8817-3fef-9140-54df868cdb04' },
   },
   onDemandLoad: {
     enabled: true,
     sourceType: 'api',
     sftp: { location: '', id: '', password: '' },
-    api: { organizationId: 'ORG-001', sourceId: 'src_123' },
+    api: { organizationId: 'cf0e3fce-3e3f-45f8-94bb-a4936a7e9c74', sourceId: '20566472-8817-3fef-9140-54df868cdb04' },
   },
 };
 
