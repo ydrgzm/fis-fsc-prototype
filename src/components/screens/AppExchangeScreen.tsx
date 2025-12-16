@@ -1,8 +1,9 @@
 import { ChevronDown, Star, Search, Heart, MessageCircle, Play, ChevronRight, User } from 'lucide-react';
 import { useWizard } from '../../context/WizardContext';
 import './AppExchangeScreen.css';
-import fisLogo from '../../assets/fis-logo.png';
-import salesforceLogo from '../../assets/salesforce-logo.png';
+import dataiamLogo from '../../assets/dataiam-logo.png';
+import salesforceLogo from '../../assets/fsc-salesforce-logo.png';
+import fisLogo from '../../assets/FIS_Logo_Green.png';
 
 export function AppExchangeScreen() {
   const { setPreWizardStep } = useWizard();
@@ -57,7 +58,7 @@ export function AppExchangeScreen() {
         <div className="listing-header">
           <div className="listing-logo">
             <div className="logo-wrapper">
-              <img src={fisLogo} alt="FIS Logo" />
+              <img src={dataiamLogo} alt="FIS Logo" />
             </div>
           </div>
           <div className="listing-info">
@@ -125,11 +126,14 @@ export function AppExchangeScreen() {
           <div className="media-section">
             <div className="media-carousel">
               <div className="carousel-main">
-                <img 
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect fill='%23032D60' width='800' height='450'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='white' font-size='32' font-family='Arial'%3EFIS Integration%3C/text%3E%3Ctext x='400' y='250' text-anchor='middle' fill='white' font-size='24' font-family='Arial'%3Efor%3C/text%3E%3Ctext x='400' y='300' text-anchor='middle' fill='white' font-size='32' font-family='Arial'%3EFinancial Services Cloud%3C/text%3E%3C/svg%3E"
-                  alt="FIS Integration for Financial Services Cloud"
-                  className="carousel-image"
-                />
+                <div className="integration-showcase">
+                  <div className="showcase-logos">
+                    <img src={fisLogo} alt="FIS Logo" className="showcase-logo" />
+                    <div className="showcase-arrow">→</div>
+                    <img src={salesforceLogo} alt="Salesforce Logo" className="showcase-logo" />
+                  </div>
+                  {/* <div className="showcase-title">FIS Integration for Financial Services Cloud</div> */}
+                </div>
               </div>
               <div className="carousel-thumbnails">
                 <div className="thumbnail active">
@@ -156,7 +160,7 @@ export function AppExchangeScreen() {
               <div className="highlight-card">
                 <div className="highlight-icon">🔄</div>
                 <div className="highlight-content">
-                  <strong>REAL-TIME DATA SYNCHRONIZATION:</strong> Automatically sync accounts, transactions, and customer data between FIS core banking and Financial Services Cloud. Bi-directional updates ensure data consistency across systems.
+                  <strong>DATA SYNCHRONIZATION:</strong> Automatically sync accounts, transactions, and customer data between FIS core banking and Financial Services Cloud.
                 </div>
               </div>
               <div className="highlight-card">
@@ -180,15 +184,15 @@ export function AppExchangeScreen() {
             <div className="details-grid">
               <div className="detail-item">
                 <span className="detail-label">Listed On</span>
-                <span className="detail-value">September 10, 2024</span>
+                <span className="detail-value">December 10, 2025</span>
               </div>
               <div className="detail-item">
                 <span className="detail-label">Latest Release</span>
-                <span className="detail-value">December 1, 2024</span>
+                <span className="detail-value">December 16, 2025</span>
               </div>
               <div className="detail-item">
                 <span className="detail-label">Version</span>
-                <span className="detail-value">16.0.2122</span>
+                <span className="detail-value">1.2.0</span>
               </div>
               <div className="detail-item">
                 <span className="detail-label">Categories</span>

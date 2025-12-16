@@ -56,7 +56,7 @@ export function RunScreen() {
         <div className="api-limit-notice">
           <Info size={18} className="info-icon" />
           <span>
-            Salesforce Bulk API V2: <strong className="remaining">15,000 remaining</strong> out of today's limit of 15,000
+            Salesforce Bulk API V2: <strong className="remaining">4,356 remaining</strong> out of today's limit of 15,000
           </span>
         </div>
 
@@ -78,7 +78,7 @@ export function RunScreen() {
         {run.mode === 'now' && (
           <div className="run-now-content">
             <p className="run-description">
-              The integration will start immediately upon clicking the button below.
+              The data synchronization will begin immediately and is expected to complete in 30–35 minutes.
             </p>
             <Button 
               variant="brand" 

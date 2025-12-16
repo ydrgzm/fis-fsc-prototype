@@ -3,7 +3,7 @@ import { WizardProgress } from './components/WizardProgress';
 import { SetupScreen, FieldMappingScreen, PreviewScreen, RunScreen, AppExchangeScreen, InstallOptionsScreen } from './components/screens';
 import { Button, Toast } from './components/ui';
 import { ChevronDown, ChevronRight, Search, Heart, User } from 'lucide-react';
-import fisLogo from './assets/fis-logo.png';
+import dataiamLogo from './assets/dataiam-logo.png';
 import salesforceLogo from './assets/salesforce-logo.png';
 import './App.css';
 
@@ -106,7 +106,7 @@ function WizardFlow() {
         {/* Page Header */}
         <div className="wizard-header">
           <div className="wizard-logo">
-            <img src={fisLogo} alt="FIS Logo" />
+            <img src={dataiamLogo} alt="FIS Logo" />
           </div>
           <div className="wizard-title-section">
             <h1 className="wizard-page-title">Configure FIS-FSC Integration</h1>

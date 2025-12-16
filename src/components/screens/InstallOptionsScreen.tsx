@@ -2,7 +2,7 @@ import { ChevronDown, ChevronRight, Search, AlertTriangle, Heart, User } from 'l
 import { useWizard } from '../../context/WizardContext';
 import type { InstallConfig } from '../../context/WizardContext';
 import './InstallOptionsScreen.css';
-import fisLogo from '../../assets/fis-logo.png';
+import dataiamLogo from '../../assets/dataiam-logo.png';
 import salesforceLogo from '../../assets/salesforce-logo.png';
 
 export function InstallOptionsScreen() {
@@ -70,7 +70,7 @@ export function InstallOptionsScreen() {
         {/* Page Header */}
         <div className="install-header">
           <div className="install-logo">
-            <img src={fisLogo} alt="FIS Logo" />
+            <img src={dataiamLogo} alt="FIS Logo" />
           </div>
           <div className="install-title-section">
             <h1 className="install-page-title">Install FIS-FSC Integration</h1>
@@ -221,11 +221,11 @@ export function InstallOptionsScreen() {
             </div>
             <div className="metadata-item">
               <span className="metadata-label">Version Name</span>
-              <span className="metadata-value">1.0</span>
+              <span className="metadata-value">Holodeck</span>
             </div>
             <div className="metadata-item">
               <span className="metadata-label">Version Number</span>
-              <span className="metadata-value">1.0.0</span>
+              <span className="metadata-value">1.2.0</span>
             </div>
           </div>
           <div className="metadata-description">

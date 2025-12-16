@@ -2,6 +2,8 @@ import { useWizard } from '../../context/WizardContext';
 import type { FieldMapping, DataFix } from '../../context/WizardContext';
 import { Card, Checkbox, Radio, Select, Input, Button } from '../ui';
 import './FieldMappingScreen.css';
+import fisLogo from '../../assets/FIS_Logo_Green.png';
+import salesforceLogo from '../../assets/fsc-salesforce-logo.png';
 
 // Target field option with metadata from Salesforce
 interface TargetFieldOption {
@@ -291,12 +293,22 @@ export function FieldMappingScreen() {
 
   return (
     <div className="field-mapping-screen">
+      <div className="recommended-note">
+        <span className="recommended-note-icon">⚠️</span>
+        <span className="recommended-note-text">
+          <strong>Data fixes marked with <span className="recommended-badge">R</span> are recommended and are required for most FIS to FSC data sync jobs.</strong>
+        </span>
+      </div>
       <Card>
-        <div className="recommended-note">
-          <span className="recommended-note-icon">⚠️</span>
-          <span className="recommended-note-text">
-            <strong>Recommended fixes are pre-selected.</strong> These data transformations are commonly needed for FIS to FSC migrations. You can customize selections based on your specific data requirements.
-          </span>
+        <div className="mapping-header-info">
+          <div className="mapping-checkbox-spacer"></div>
+          <div className="mapping-source">
+            <img src={fisLogo} alt="FIS Logo" className="mapping-logo" />
+          </div>
+          <div className="mapping-arrow">→</div>
+          <div className="mapping-target">
+            <img src={salesforceLogo} alt="Salesforce Logo" className="mapping-logo" />
+          </div>
         </div>
         <div className="mappings-list">
           {mappings.map((mapping, index) => (
