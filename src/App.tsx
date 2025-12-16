@@ -2,9 +2,7 @@ import { WizardProvider, useWizard } from './context/WizardContext';
 import { WizardProgress } from './components/WizardProgress';
 import { SetupScreen, FieldMappingScreen, PreviewScreen, RunScreen, AppExchangeScreen, InstallOptionsScreen } from './components/screens';
 import { Button, Toast } from './components/ui';
-import { ChevronDown, ChevronRight, Search, Heart, User } from 'lucide-react';
 import dataiamLogo from './assets/dataiam-logo.png';
-import salesforceLogo from './assets/salesforce-logo.png';
 import './App.css';
 
 function WizardFlow() {
@@ -15,7 +13,7 @@ function WizardFlow() {
     showToast,
     setShowToast,
     toastMessage,
-    setPreWizardStep
+    // setPreWizardStep // Unused now
   } = useWizard();
 
   const handleBack = () => {
@@ -64,44 +62,6 @@ function WizardFlow() {
 
   return (
     <div className="wizard-app">
-      {/* Top Navigation Bar */}
-      <header className="appexchange-topnav">
-        <div className="topnav-left">
-          <div className="appexchange-logo">
-            <img src={salesforceLogo} alt="Salesforce" className="salesforce-cloud-icon" />
-            <span className="logo-text">AppExchange</span>
-          </div>
-        </div>
-        <nav className="topnav-center">
-          <a href="#" className="nav-link">Home</a>
-          <a href="#" className="nav-link">Explore <ChevronDown size={14} /></a>
-          <a href="#" className="nav-link">Collections</a>
-          <a href="#" className="nav-link">Consultants</a>
-          <a href="#" className="nav-link">Learn</a>
-        </nav>
-        <div className="topnav-right">
-          <div className="search-container">
-            <Search size={16} className="search-icon" />
-            <input type="text" placeholder="Search AppExchange" className="search-input" />
-          </div>
-          <button className="icon-btn" title="Favorites" aria-label="Favorites">
-            <Heart size={20} />
-          </button>
-          <button className="icon-btn" title="Account" aria-label="Account">
-            <User size={20} />
-          </button>
-        </div>
-      </header>
-
-      {/* Breadcrumb */}
-      <div className="breadcrumb-container">
-        <div className="breadcrumb">
-          <a href="#" className="breadcrumb-link" onClick={(e) => { e.preventDefault(); setPreWizardStep(0); }}>FIS-FSC Integration</a>
-          <ChevronRight size={14} className="breadcrumb-separator" />
-          <span className="breadcrumb-current">Configuration - {getStepTitle()}</span>
-        </div>
-      </div>
-      
       <main className="wizard-main">
         {/* Page Header */}
         <div className="wizard-header">
@@ -109,7 +69,7 @@ function WizardFlow() {
             <img src={dataiamLogo} alt="FIS Logo" />
           </div>
           <div className="wizard-title-section">
-            <h1 className="wizard-page-title">Configure FIS-FSC Integration</h1>
+            <h1 className="wizard-page-title">Configure FIS Integration for Financial Services Cloud</h1>
             <p className="wizard-subtitle">Step {currentStep} of 4: {getStepTitle()}</p>
           </div>
         </div>
@@ -140,20 +100,6 @@ function WizardFlow() {
           )}
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="appexchange-footer">
-        <div className="footer-content">
-          <div className="footer-links">
-            <a href="#">Offer your solution on AppExchange</a>
-            <span className="footer-divider">|</span>
-            <a href="#">Privacy Statement</a>
-            <span className="footer-divider">|</span>
-            <a href="#">Terms of Use</a>
-          </div>
-          <p className="footer-copyright">© 2000-2025, Salesforce, Inc.</p>
-        </div>
-      </footer>
 
       {showToast && (
         <Toast

@@ -1,9 +1,8 @@
-import { ChevronDown, ChevronRight, Search, AlertTriangle, Heart, User } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 import { useWizard } from '../../context/WizardContext';
 import type { InstallConfig } from '../../context/WizardContext';
 import './InstallOptionsScreen.css';
 import dataiamLogo from '../../assets/dataiam-logo.png';
-import salesforceLogo from '../../assets/salesforce-logo.png';
 
 export function InstallOptionsScreen() {
   const { wizardData, updateInstallConfig, setPreWizardStep } = useWizard();
@@ -27,44 +26,6 @@ export function InstallOptionsScreen() {
 
   return (
     <div className="install-options-screen">
-      {/* Top Navigation Bar */}
-      <header className="appexchange-topnav">
-        <div className="topnav-left">
-          <div className="appexchange-logo">
-            <img src={salesforceLogo} alt="Salesforce" className="salesforce-cloud-icon" />
-            <span className="logo-text">AppExchange</span>
-          </div>
-        </div>
-        <nav className="topnav-center">
-          <a href="#" className="nav-link">Home</a>
-          <a href="#" className="nav-link">Explore <ChevronDown size={14} /></a>
-          <a href="#" className="nav-link">Collections</a>
-          <a href="#" className="nav-link">Consultants</a>
-          <a href="#" className="nav-link">Learn</a>
-        </nav>
-        <div className="topnav-right">
-          <div className="search-container">
-            <Search size={16} className="search-icon" />
-            <input type="text" placeholder="Search AppExchange" className="search-input" />
-          </div>
-          <button className="icon-btn">
-            <Heart size={20} />
-          </button>
-          <button className="icon-btn">
-            <User size={20} />
-          </button>
-        </div>
-      </header>
-
-      {/* Breadcrumb */}
-      <div className="breadcrumb-container">
-        <div className="breadcrumb">
-          <a href="#" className="breadcrumb-link" onClick={(e) => { e.preventDefault(); handleCancel(); }}>FIS-FSC Integration</a>
-          <ChevronRight size={14} className="breadcrumb-separator" />
-          <span className="breadcrumb-current">Installation</span>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="install-container">
         {/* Page Header */}
@@ -73,7 +34,7 @@ export function InstallOptionsScreen() {
             <img src={dataiamLogo} alt="FIS Logo" />
           </div>
           <div className="install-title-section">
-            <h1 className="install-page-title">Install FIS-FSC Integration</h1>
+            <h1 className="install-page-title">Install FIS Integration for Financial Services Cloud</h1>
             <p className="install-subtitle">Configure your installation preferences below</p>
           </div>
         </div>
@@ -213,7 +174,7 @@ export function InstallOptionsScreen() {
           <div className="metadata-grid">
             <div className="metadata-item">
               <span className="metadata-label">App Name</span>
-              <span className="metadata-value">FSC-FIS Integration</span>
+              <span className="metadata-value">FIS Integration for Financial Services Cloud</span>
             </div>
             <div className="metadata-item">
               <span className="metadata-label">Publisher</span>
@@ -243,20 +204,6 @@ export function InstallOptionsScreen() {
           </button>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="appexchange-footer">
-        <div className="footer-content">
-          <div className="footer-links">
-            <a href="#">Offer your solution on AppExchange</a>
-            <span className="footer-divider">|</span>
-            <a href="#">Privacy Statement</a>
-            <span className="footer-divider">|</span>
-            <a href="#">Terms of Use</a>
-          </div>
-          <p className="footer-copyright">© 2000-2025, Salesforce, Inc.</p>
-        </div>
-      </footer>
     </div>
   );
 }
